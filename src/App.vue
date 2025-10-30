@@ -1,13 +1,12 @@
 <script setup>
-import Header from './components/Header.vue'
+import Welcome from './components/pages/Welcome.vue'
+import Layout from './components/layouts/Layout.vue'
 </script>
 
 <template>
-  <Header></Header>
-
-  <main>
-    <p>My page content</p>
-  </main>
+  <Layout>
+    <Welcome/>
+  </Layout>
 </template>
 
 <style scoped>
