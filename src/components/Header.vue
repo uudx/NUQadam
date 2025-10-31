@@ -109,7 +109,7 @@ const mobileMenuOpen = ref(false)
             >
               <div class="p-4">
                 <div 
-                  v-for="option in Contacts" 
+                  v-for="option in Contacts"
                   :key="option.name" 
                   class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50 dark:hover:bg-white/5">
                   <div 
@@ -139,7 +139,7 @@ const mobileMenuOpen = ref(false)
 
       <Dialog class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
         <div class="fixed inset-0 z-50"></div>
-        <DialogPanel class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-100/10">
+        <DialogPanel class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:bg-gray-900 dark:sm:ring-gray-100/10">
           <div class="flex items-center justify-between">
             <a href="#" class="-m-1.5 p-1.5">
               <span class="sr-only">Sally Academy</span>
@@ -152,10 +152,10 @@ const mobileMenuOpen = ref(false)
             </button>
           </div>
           <div class="mt-6 flow-root">
-            <div class="-my-6 divide-y divide-white/10">
+            <div class="-my-6 divide-y divide-white dark:divide-white/10">
               <div class="space-y-2 py-6">
                 <Disclosure as="div" class="-mx-3" v-slot="{ open }">
-                  <DisclosureButton class="flex w-full items-center justify-between rounded-lg py-2 px-3 text-base/7 font-semibold text-white hover:text-white/5">
+                  <DisclosureButton class="flex w-full items-center justify-between rounded-lg py-2 px-3 text-base/7 font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-white/5">
                     Pages
                     <ChevronDownIcon
                       :class="open ? 'rotate-180' : ''"
@@ -164,11 +164,11 @@ const mobileMenuOpen = ref(false)
                     />
                   </DisclosureButton>
                   <DisclosurePanel class="mt-2 space-y-2">
-                    <DisclosureButton  v-for="item in Pages" 
+                    <a v-for="item in Pages" 
                       :key="item.name"
                       :href="item.href" 
-                      class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-white hover:bg-white/5">{{ item.name }}
-                    </DisclosureButton>
+                      class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-black/900 dark:text-white hover:bg-gray-50 dark:hover:bg-white/5">{{ item.name }}
+                  </a>
                   </DisclosurePanel>
                 </Disclosure>
                 <div v-for="option in Contacts"
@@ -185,8 +185,8 @@ const mobileMenuOpen = ref(false)
                   <div class="flex-auto">
                     <a 
                       :href="option.href" 
-                      class="block font-semibold text-sm/7 text-gray-900 dark:text-white"
-                      target="_blank" 
+                      class="block font-semibold text-sm/7 text-gray-900 dark:text-white opacity-80 hover:opacity-100"
+                      target="_blank"
                       rel="noopener noreferrer"
                     >
                       {{ option.name }}
