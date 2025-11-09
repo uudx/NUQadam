@@ -1,6 +1,6 @@
 <script setup>
 import Header from '../Header.vue'
-import HomePage from '../pages/Welcome.vue'
+import Footer from '../Footer.vue'
 </script>
 
 <template>
@@ -10,6 +10,9 @@ import HomePage from '../pages/Welcome.vue'
     <main>
         <slot/>
     </main>
+    <footer>
+        <Footer/>
+    </footer>
 </template>
 
 <style scoped>

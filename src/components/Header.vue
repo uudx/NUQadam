@@ -22,13 +22,15 @@ import TelegramIcon from '../assets/telegram.svg?component'
 const Contacts = [
   { 
     name: 'WhatsApp', 
-    color: '#075E54',
+    color: '#25D366',
+    bg: '#FFFFFF',
     href: 'https://wa.me/777777',
     icon: WhatsappIcon
   },
   { 
     name: 'Telegram', 
-    color: '#0088CC',
+    color: '#2AABEE',
+    bg: '#FFFFFF',
     href: 'https://t.me/7777777',
     icon: TelegramIcon
   },
@@ -37,11 +39,11 @@ const Contacts = [
 const Pages = [
   {
     name: 'Home Page',
-    href: '/'
+    path: '/'
   },
   {
-    name: 'Our Tutors',
-    href: '/'
+    name: 'Our Teachers',
+    path: '/teachers'
   },
 ] 
 
@@ -52,40 +54,42 @@ const mobileMenuOpen = ref(false)
 
 <template>
   <header class="bg-white dark:bg-gray-900">
-    <nav class="mx-auto flex max-w-7xl items-center px-6 py-1.5 lg:px-8" aria-label="Global">
-      
-      <div class="flex items-center lg:flex-1">
-        <a href="#" class="-m-1 p-1 flex items-center gap-x-2">
-          <span class="sr-only">Sally Academy</span>
-          
-          <img class="h-14 w-auto dark:hidden" src="/logo.svg" alt="SALLY ACADEMY">
-          
-          <img class="h-14 w-auto hidden dark:block" src="/logo_white.svg" alt="SALLY ACADEMY">
-        </a>
+    <nav class="mx-auto flex max-w-7xl justify-between px-8 py-1.5 lg:px-8" aria-label="Global">
+      <div class="flex items-center gap-x-12">
+        <div class="flex items-center">
+          <a href="#" class="-m-1 p-1 flex items-center gap-x-2">
+            <span class="sr-only">Sally Academy</span>
+            
+            <img class="h-8 w-auto dark:hidden" src="../assets/logo.svg" alt="Sally Academy">
+            
+            <img class="h-8 w-auto hidden dark:block" src="../assets/logo_white.svg" alt="Sally Academy">
+          </a>
+        </div>
+        
+        <div class="hidden lg:flex justify-center gap-x-6 text-gray-900 dark:text-white">
+          <router-link to="/" class="text-sm/6 font-semibold opacity-80 hover:opacity-100 hover:bg-gray-100 dark:hover:bg-white/5 rounded-md px-3 py-2">Home Page</router-link>
+          <router-link to="/teachers" class="text-sm/6 font-semibold opacity-80 hover:opacity-100 hover:bg-gray-100 dark:hover:bg-white/5 rounded-md px-3 py-2">Our Teachers</router-link>
+        </div>
       </div>
-
+      
       <div class="flex flex-1 gap-x-12 flex-end justify-end lg:hidden">
         <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-400" @click="mobileMenuOpen = true">
           <span class="sr-only">Open main menu</span>
           <Bars3Icon class="size-6" aria-hidden="true" />
         </button>
       </div>
-      
-      <div class="hidden lg:flex lg:flex-1 justify-center gap-x-12 text-gray-900 dark:text-white">
-        <a href="#" class="text-sm/6 font-semibold opacity-80 hover:opacity-100">Home Page</a>
-        <a href="#" class="text-sm/6 font-semibold opacity-80 hover:opacity-100">Our Tutors</a>
-      </div>
 
-      <PopoverGroup class="hidden lg:flex lg:flex-1 justify-end">
+      <PopoverGroup class="hidden lg:flex">
         <Popover v-slot="{ open }" class="relative">
           <PopoverButton
             :class="open ? 'opacity-100' : 'opacity-80'"
-            class="flex items-center gap-x-1 rounded-md text-sm/6 font-semibold
+            class="flex items-center gap-x-1 px-3 py-2 pr-1 rounded-md text-sm/6 font-semibold
+                  hover:bg-gray-100 dark:hover:bg-white/5
                   text-black transition-opacity hover:opacity-100 
                   dark:text-white 
                   focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
           >
-            <span>Contact us</span>
+            <span class>Contact us</span>
             <ChevronDownIcon
               :class="open ? 'rotate-180' : ''"
               class="size-5 flex-none text-black/60 transition-transform duration-150 ease-in-out dark:text-white/60"
@@ -143,8 +147,8 @@ const mobileMenuOpen = ref(false)
           <div class="flex items-center justify-between">
             <a href="#" class="-m-1.5 p-1.5">
               <span class="sr-only">Sally Academy</span>
-              <img class="h-14 w-auto dark:hidden" src="/logo.svg" alt="SALLY ACADEMY">
-              <img class="h-14 w-auto hidden dark:block" src="/logo_white.svg" alt="SALLY ACADEMY">
+              <img class="h-14 w-auto dark:hidden" src="../assets/logo.svg" alt="SALLY ACADEMY">
+              <img class="h-14 w-auto hidden dark:block" src="../assets/logo_white.svg" alt="SALLY ACADEMY">
             </a>
             <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-400" @click="mobileMenuOpen = false">
               <span class="sr-only">Close menu</span>
@@ -164,11 +168,11 @@ const mobileMenuOpen = ref(false)
                     />
                   </DisclosureButton>
                   <DisclosurePanel class="mt-2 space-y-2">
-                    <a v-for="item in Pages" 
+                    <div v-for="item in Pages" 
                       :key="item.name"
-                      :href="item.href" 
-                      class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-black/900 dark:text-white hover:bg-gray-50 dark:hover:bg-white/5">{{ item.name }}
-                  </a>
+                      class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-black/900 dark:text-white hover:bg-gray-50 dark:hover:bg-white/5">
+                        <router-link :to="item.path">{{ item.name }}</router-link>
+                    </div>
                   </DisclosurePanel>
                 </Disclosure>
                 <div v-for="option in Contacts"

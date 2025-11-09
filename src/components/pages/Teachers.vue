@@ -2,6 +2,7 @@
 </script>
 
 <template>
+    Teachers
 </template>
 
 <style scoped>
