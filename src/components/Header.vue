@@ -53,7 +53,7 @@ const mobileMenuOpen = ref(false)
 </script>
 
 <template>
-  <header class="bg-white dark:bg-gray-900">
+  <header style="border-radius:0px 0px 10px 10px;" class="bg-white dark:bg-gray-900">
     <nav class="mx-auto flex max-w-7xl justify-between px-8 py-1.5 lg:px-8" aria-label="Global">
       <div class="flex items-center gap-x-12">
         <div class="flex items-center">
