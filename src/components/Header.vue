@@ -168,11 +168,14 @@ const mobileMenuOpen = ref(false)
                     />
                   </DisclosureButton>
                   <DisclosurePanel class="mt-2 space-y-2">
-                    <div v-for="item in Pages" 
+                    <router-link
+                      v-for="item in Pages"
                       :key="item.name"
-                      class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-black/900 dark:text-white hover:bg-gray-50 dark:hover:bg-white/5">
-                        <router-link :to="item.path">{{ item.name }}</router-link>
-                    </div>
+                      :to="item.path"
+                      @click="mobileMenuOpen = false"  class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-black/900 dark:text-white hover:bg-gray-50 dark:hover:bg-white/5"
+                    >
+                      {{ item.name }}
+                    </router-link>
                   </DisclosurePanel>
                 </Disclosure>
                 <div v-for="option in Contacts"
