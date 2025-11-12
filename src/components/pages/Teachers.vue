@@ -4,25 +4,25 @@ import { ref } from 'vue'
 const cards = ref([
   {
     id: 1,
-    image: '/public/resources/webphq/1.webp',
+    image: '/public/resources/webp/1.webp',
     title: 'Әбжан Бауыржан',
     text: 'Әбжан Бауыржан'
   },
   {
     id: 2,
-    image: '/public/resources/webphq/2.webp',
+    image: '/public/resources/webp/2.webp',
     title: 'Серікулы Рамазан',
     text: 'Серікулы Рамазан'
   },
   {
     id: 3,
-    image: '/public/resources/webphq/3.webp',
+    image: '/public/resources/webp/3.webp',
     title: 'Тушжанов Мади',
     text: 'Тушжанов Мади'
   },
   {
     id: 4,
-    image: '/public/resources/webphq/4.webp',
+    image: '/public/resources/webp/4.webp',
     title: 'Ибрагим Даурен',
     text: 'Ибрагим Даурен'
   },
