@@ -1,58 +1,57 @@
 <script setup>
 import { ref } from 'vue'
 
-// Импортируем все изображения
-import png1 from '../resources/1.png'
-import png2 from '../resources/2.png'
-import png3 from '../resources/3.png'
-import png4 from '../resources/4.png'
-import png5 from '../resources/5.png'
-import png6 from '../resources/6.png'
-import png7 from '../resources/7.png'
-import png8 from '../resources/8.png'
-
 const cards = ref([
   {
-    image: png1,
+    id: 1,
+    image: '/public/resources/webphq/1.webp',
     title: 'Әбжан Бауыржан',
     text: 'Әбжан Бауыржан'
   },
   {
-    image: png2,
+    id: 2,
+    image: '/public/resources/webphq/2.webp',
     title: 'Серікулы Рамазан',
     text: 'Серікулы Рамазан'
   },
   {
-    image: png3,
+    id: 3,
+    image: '/public/resources/webphq/3.webp',
     title: 'Тушжанов Мади',
     text: 'Тушжанов Мади'
   },
   {
-    image: png4,
+    id: 4,
+    image: '/public/resources/webphq/4.webp',
     title: 'Ибрагим Даурен',
     text: 'Ибрагим Даурен'
   },
   {
-    image: png5,
+    id: 5,
+    image: '/public/resources/webp/5.webp',
     title: 'Абикенова Нурлы',
     text: 'Абикенова Нурлы'
   },
   {
-    image: png6,
+    id: 6,
+    image: '/public/resources/webp/6.webp',
     title: 'Сансызбай Байнур',
     text: 'Сансызбай Байнур'
   },
   {
-    image: png7,
+    id: 7,
+    image: '/public/resources/webp/7.webp',
     title: 'Қуаныш Кевлинжан',
     text: 'Қуаныш Кевлинжан'
   },
   {
-    image: png8,
+    id: 8,
+    image: '/public/resources/webp/8.webp',
     title: 'Ерзатулы Әділжан',
     text: 'Ерзатулы Әділжан'
   }
 ])
+
 </script>
 
 <template>
@@ -66,7 +65,7 @@ const cards = ref([
       <img 
         v-lazy="card.image"
         :alt="card.title"
-        class="w-full h-40 object-cover"
+        class="w-100 h-120 object-cover"
       >
       <div class="p-6">
         <h3 class="text-2xl font-bold text-gray-900 mb-3">
@@ -84,6 +83,7 @@ const cards = ref([
 /* Стили для состояния загрузки */
 img[lazy=loading] {
   background: #f0f0f0;
+  height: 160px;
 }
 
 img[lazy=error] {
