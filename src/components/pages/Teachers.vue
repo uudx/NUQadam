@@ -4,49 +4,49 @@ import { ref } from 'vue'
 const cards = ref([
   {
     id: 1,
-    image: '/public/resources/webp/1.webp',
+    image: '/resources/webp/photos/1.webp',
     title: 'Әбжан Бауыржан',
     text: 'Әбжан Бауыржан'
   },
   {
     id: 2,
-    image: '/public/resources/webp/2.webp',
+    image: '/resources/webp/photos/2.webp',
     title: 'Серікулы Рамазан',
     text: 'Серікулы Рамазан'
   },
   {
     id: 3,
-    image: '/public/resources/webp/3.webp',
+    image: '/resources/webp/photos/3.webp',
     title: 'Тушжанов Мади',
     text: 'Тушжанов Мади'
   },
   {
     id: 4,
-    image: '/public/resources/webp/4.webp',
+    image: '/resources/webp/photos/4.webp',
     title: 'Ибрагим Даурен',
     text: 'Ибрагим Даурен'
   },
   {
     id: 5,
-    image: '/public/resources/webp/5.webp',
+    image: '/resources/webp/photos/5.webp',
     title: 'Абикенова Нурлы',
     text: 'Абикенова Нурлы'
   },
   {
     id: 6,
-    image: '/public/resources/webp/6.webp',
+    image: '/resources/webp/photos/6.webp',
     title: 'Сансызбай Байнур',
     text: 'Сансызбай Байнур'
   },
   {
     id: 7,
-    image: '/public/resources/webp/7.webp',
+    image: '/resources/webp/photos/7.webp',
     title: 'Қуаныш Кевлинжан',
     text: 'Қуаныш Кевлинжан'
   },
   {
     id: 8,
-    image: '/public/resources/webp/8.webp',
+    image: '/resources/webp/photos/8.webp',
     title: 'Ерзатулы Әділжан',
     text: 'Ерзатулы Әділжан'
   }
@@ -65,7 +65,7 @@ const cards = ref([
       <img 
         v-lazy="card.image"
         :alt="card.title"
-        class="w-100 h-120 object-cover"
+        class="w-full h-120 object-cover"
       >
       <div class="p-6">
         <h3 class="text-2xl font-bold text-gray-900 mb-3">
@@ -83,7 +83,7 @@ const cards = ref([
 /* Стили для состояния загрузки */
 img[lazy=loading] {
   background: #f0f0f0;
-  height: 160px;
+  height: 480px;
 }
 
 img[lazy=error] {

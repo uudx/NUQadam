@@ -53,7 +53,7 @@ const mobileMenuOpen = ref(false)
 </script>
 
 <template>
-  <header style="border-radius:0px 0px 10px 10px;" class="bg-white dark:bg-gray-900">
+  <header class="border-2 border-gray-100 bg-white dark:bg-gray-900 dark:border-white/5 z-50">
     <nav class="mx-auto flex max-w-7xl justify-between px-8 py-1.5 lg:px-8" aria-label="Global">
       <div class="flex items-center gap-x-12">
         <div class="flex items-center">
@@ -106,7 +106,7 @@ const mobileMenuOpen = ref(false)
             leave-to-class="translate-y-1 opacity-0"
           >
             <PopoverPanel 
-              class="absolute right-0 z-10 mt-3 w-sm
+              class="absolute right-0 z-50 mt-3 w-sm
                     overflow-hidden rounded-3xl bg-white 
                     shadow-lg outline-1 outline-gray-900/5 
                     dark:bg-gray-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10"
@@ -158,7 +158,7 @@ const mobileMenuOpen = ref(false)
           <div class="mt-6 flow-root">
             <div class="-my-6 divide-y divide-white dark:divide-white/10">
               <div class="space-y-2 py-6">
-                <Disclosure as="div" class="-mx-3" v-slot="{ open }">
+                <Disclosure as="div" class="-mx-3" v-slot="{ open }" defaultOpen>
                   <DisclosureButton class="flex w-full items-center justify-between rounded-lg py-2 px-3 text-base/7 font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-white/5">
                     Pages
                     <ChevronDownIcon

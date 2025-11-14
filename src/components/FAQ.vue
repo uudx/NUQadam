@@ -1,0 +1,88 @@
+<script setup>
+import { ref } from 'vue';
+
+const openFAQ = ref(null); // Holds the ID of the open question
+
+const faqList = ref([
+  { id: 1, question: 'How does this online course work?', answer: 'Our platform offers flexible learning. You\'ll have access to video lessons, interactive exercises, live classes with instructors, and a community forum. Study at your own pace!' },
+  { id: 2, question: 'What materials are included?', answer: 'Each course provides comprehensive digital textbooks, audio exercises, video tutorials, downloadable worksheets, and access to our exclusive learning resources.' },
+  { id: 3, question: 'Do I need prior English knowledge?', answer: 'We offer courses for all levels, from absolute beginners to advanced speakers. Our placement test helps you find the perfect starting point for your journey.' },
+  { id: 4, question: 'How long do I have access to the course?', answer: 'Once purchased, you get lifetime access to all course materials, including future updates. Study anytime, anywhere, at your convenience.' },
+  { id: 5, question: 'Can I get a certificate?', answer: 'Yes, upon successful completion of any course, you will receive a verifiable certificate that you can share on your resume or LinkedIn.' },
+  { id: 6, question: 'What if I\'m not satisfied?', answer: 'We offer a 30-day money-back guarantee, no questions asked. We are confident you\'ll love our platform.' },
+]);
+
+const toggleFAQ = (id) => {
+  if (openFAQ.value === id) {
+    openFAQ.value = null; // Close it
+  } else {
+    openFAQ.value = id; // Open it
+  }
+};
+
+// --- Accordion Transition Methods ---
+const onAccordionEnter = (el) => {
+  el.style.height = 'auto';
+  const height = getComputedStyle(el).height;
+  el.style.height = '0';
+  getComputedStyle(el);
+  setTimeout(() => {
+    el.style.height = height;
+  });
+};
+
+const onAccordionLeave = (el) => {
+  el.style.height = getComputedStyle(el).height;
+  getComputedStyle(el);
+  setTimeout(() => {
+    el.style.height = '0';
+  });
+};
+</script>
+
+<template>
+  <section class="container mx-auto py-16 px-6 lg:px-8 bg-white dark:bg-black">
+    <h2 class="text-4xl font-extrabold text-center text-[#b12c00] dark:text-red-400 mb-12">Frequently Asked Questions</h2>
+    <div class="max-w-3xl mx-auto">
+      <div 
+        v-for="faq in faqList" 
+        :key="faq.id" 
+        class="border-b border-gray-200 dark:border-gray-700"
+      >
+        <button @click="toggleFAQ(faq.id)" class="flex justify-between items-center w-full py-6 text-left">
+          <span class="text-xl font-bold text-gray-900 dark:text-white">{{ faq.question }}</span>
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            class="h-6 w-6 shrink-0 text-[#b12c00] dark:text-red-400 transition-transform duration-300"
+            :class="{'rotate-45': openFAQ === faq.id}"
+            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+          </svg>
+        </button>
+        <transition name="accordion" @enter="onAccordionEnter" @leave="onAccordionLeave">
+          <div v-show="openFAQ === faq.id" class="overflow-hidden">
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed pb-6 pr-8">
+              {{ faq.answer }}
+            </p>
+          </div>
+        </transition>
+      </div>
+    </div>
+  </section>
+</template>
+
+<style scoped>
+/* Vue Transition classes for the accordion.
+*/
+.accordion-enter-active,
+.accordion-leave-active {
+  transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  overflow: hidden;
+}
+.accordion-enter-from,
+.accordion-leave-to {
+  height: 0 !important;
+  opacity: 0;
+}
+</style>
