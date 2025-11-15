@@ -16,25 +16,12 @@ import {
   Bars3Icon,
   XMarkIcon,
 } from '@heroicons/vue/20/solid'
-import WhatsappIcon from '../assets/whatsapp.svg?component'
-import TelegramIcon from '../assets/telegram.svg?component'
 
-const Contacts = [
-  { 
-    name: 'WhatsApp', 
-    color: '#25D366',
-    bg: '#FFFFFF',
-    href: 'https://wa.me/777777',
-    icon: WhatsappIcon
-  },
-  { 
-    name: 'Telegram', 
-    color: '#2AABEE',
-    bg: '#FFFFFF',
-    href: 'https://t.me/7777777',
-    icon: TelegramIcon
-  },
-]
+import { 
+  socialButtons, 
+  instagramLink, 
+  phoneNumbers 
+} from '../data/socials.js'
 
 const Pages = [
   {
@@ -45,10 +32,22 @@ const Pages = [
     name: 'Our Teachers',
     path: '/teachers'
   },
-] 
-
+]
 
 const mobileMenuOpen = ref(false)
+
+const copiedNumber = ref(null)
+
+function copyToClipboard(numberToCopy) {
+  navigator.clipboard.writeText(numberToCopy).then(() => {
+    copiedNumber.value = numberToCopy
+    setTimeout(() => {
+      copiedNumber.value = null
+    }, 2000)
+  }).catch(err => {
+    console.error('Failed to copy: ', err)
+  })
+}
 
 </script>
 
@@ -111,29 +110,70 @@ const mobileMenuOpen = ref(false)
                     shadow-lg outline-1 outline-gray-900/5 
                     dark:bg-gray-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10"
             >
-              <div class="p-4">
-                <div 
-                  v-for="option in Contacts"
-                  :key="option.name" 
-                  class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50 dark:hover:bg-white/5">
-                  <div 
-                    :style="{ backgroundColor: option.color }"
-                    class="flex size-11 flex-none items-center justify-center rounded-lg"
+              <div class="p-4 space-y-3">
+                <div class="grid grid-cols-2 gap-3">
+                  <a
+                    v-for="social in socialButtons"
+                    :key="social.name"
+                    :href="social.href"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    :class="[
+                      'flex w-full items-center justify-center gap-x-2 rounded-lg px-3 py-3 text-sm font-semibold text-white transition-colors',
+                      social.class
+                    ]"
                   >
-                    <component :is="option.icon" class="size-6 text-white" aria-hidden="true" />
-                  </div>
+                    <component :is="social.icon" class="size-5" aria-hidden="true" />
+                    <span>{{ social.name }}</span>
+                  </a>
+                </div>
 
-                  <div class="flex-auto">
-                    <a 
-                      :href="option.href" 
-                      class="block font-semibold text-gray-900 dark:text-white"
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                    >
-                      {{ option.name }}
-                      <span class="absolute inset-0"></span>
-                    </a>
-                  </div>
+                <a
+                  :href="instagramLink.href"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  :class="[
+                    'flex w-full items-center justify-center gap-x-3 rounded-lg px-4 py-3 text-sm font-semibold text-white transition-opacity',
+                    instagramLink.class
+                  ]"
+                >
+                  <component :is="instagramLink.icon" class="size-5" aria-hidden="true" />
+                  <span>{{ instagramLink.name }}</span>
+                </a>
+              </div>
+
+              <div class="border-t border-gray-200/50 p-4 dark:border-white/10">                
+                <div class="flex items-center text-sm">
+                  <button
+                    type="button"
+                    @click="copyToClipboard(phoneNumbers[0].value)"
+                    class="flex-1 rounded-md px-2 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500
+                          flex items-center justify-center"
+                  >
+                    <span v-if="copiedNumber === phoneNumbers[0].value" class="font-semibold text-green-500">
+                      Copied!
+                    </span>
+                    <span v-else>
+                      {{ phoneNumbers[0].number }}
+                    </span>
+                  </button>
+                  
+                  <div class="h-6 w-px bg-gray-300 dark:bg-white/20" aria-hidden="true"></div>
+
+                  <button
+                    type="button"
+                    @click="copyToClipboard(phoneNumbers[1].value)"
+                    class="flex-1 rounded-md px-2 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500
+                          flex items-center justify-center"
+                  >
+                    <span v-if="copiedNumber === phoneNumbers[1].value" class="font-semibold text-green-500">
+                      Copied!
+                    </span>
+                    <span v-else>
+                      {{ phoneNumbers[1].number }}
+                    </span>
+                  </button>
+
                 </div>
               </div>
             </PopoverPanel>

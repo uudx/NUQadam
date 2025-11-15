@@ -1,3 +1,20 @@
+<script setup>
+import { ref } from 'vue'
+
+import { 
+  socialButtons, 
+  instagramLink, 
+  phoneNumbers 
+} from '../data/socials.js'
+
+const isModalOpen = ref(false)
+
+const handleContactSubmit = () => {
+  alert('Form submitted! (This is a placeholder)')
+  isModalOpen.value = false // Close modal on submit
+}
+</script>
+
 <template>
     <section class="relative bg-black text-white overflow-hidden">
         <div class="absolute inset-0 z-0 w-full h-full bg-gray-800 flex items-center justify-center">
@@ -32,81 +49,109 @@
         </div>
     </section>
     <Transition name="modal">
-    <div 
+    <div
       v-if="isModalOpen"
       class="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-6"
-      @click.self="isModalOpen = false" 
+      @click.self="isModalOpen = false"
     >
-      <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-lg p-8 relative">
-        
-        <button 
-          @click="isModalOpen = false" 
+      <div
+        class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-lg p-6 relative"
+      >
+        <button
+          @click="isModalOpen = false"
           class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 dark:text-gray-500 dark:hover:text-white transition-colors"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         </button>
 
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Contact Us</h2>
-        <p class="text-gray-600 dark:text-gray-300 mb-6">
-          We're excited to hear from you! Please fill out the form below and we'll get back to you as soon as possible.
-        </p>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          Out Contacts
+        </h2>
 
-        <form @submit.prevent="handleContactSubmit">
-          <div class="space-y-4">
-            <div>
-              <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Name</label>
-              <input type="text" id="name" class="mt-1 px-1 block w-full rounded-md border-gray-300 bg-white dark:bg-gray-700 dark:border-gray-600 dark:text-white shadow-sm focus:border-blue-500 focus:ring-blue-500 text-gray-900" required>
-            </div>
-            <div>
-            <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Phone Number</label>
+        <div>
+          <div class="space-y-3">
             
-            <div class="mt-1 flex items-stretch rounded-md border border-gray-300 dark:border-gray-600 shadow-sm">
-              
-              <div class="flex items-center px-3 border-r border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 rounded-l-md">
-                <span class="text-gray-500 dark:text-gray-400">+7</span>
-              </div>
-
-              <input 
-                type="tel" 
-                id="phone" 
-                name="phone"
-                autocomplete="tel"
-                class="block w-full pl-1 grow border-none bg-white dark:bg-gray-700 dark:text-white text-gray-900 focus:ring-0 rounded-r-md" 
-                placeholder=" (700) 123-4567" 
-                required
+            <div class="grid grid-cols-2 gap-3">
+              <a
+                v-for="social in socialButtons"
+                :key="social.name"
+                :href="social.href"
+                target="_blank"
+                rel="noopener noreferrer"
+                :class="[
+                  'flex w-full items-center justify-center gap-x-2 rounded-lg px-3 py-3 text-sm font-semibold text-white transition-colors',
+                  social.class
+                ]"
               >
+                <component :is="social.icon" class="size-8" aria-hidden="true" />
+                <span>{{ social.name }}</span>
+              </a>
             </div>
+            
+            <a
+              :href="instagramLink.href"
+              target="_blank"
+              rel="noopener noreferrer"
+              :class="[
+                'flex w-full items-center justify-center gap-x-3 rounded-lg px-4 py-3 text-sm font-semibold text-white transition-opacity',
+                instagramLink.class
+              ]"
+            >
+              <component :is="instagramLink.icon" class="size-8" aria-hidden="true" />
+              <span>{{ instagramLink.name }}</span>
+            </a>
           </div>
-            <div>
-              <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Message</label>
-              <textarea id="message" rows="4" class="mt-1 p-1 block w-full rounded-md border-gray-300 bg-white dark:bg-gray-700 dark:border-gray-600 dark:text-white shadow-sm focus:border-blue-500 focus:ring-blue-500 text-gray-900" required></textarea>
-            </div>
-            <div class="pt-2">
-              <button 
-                type="submit"
-                class="w-full bg-[#b12c00] text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-red-800 transition duration-300"
+
+          <div class="border-t border-gray-200/50 dark:border-white/10 pt-4 mt-4">
+            
+            <div class="flex items-center text-sm">
+              
+              <button
+                type="button"
+                @click="copyToClipboard(phoneNumbers[0].value)"
+                class="flex-1 rounded-md px-2 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500
+                       flex items-center justify-center"
               >
-                Send Message
+                <span v-if="copiedNumber === phoneNumbers[0].value" class="font-semibold text-green-500">
+                  Copied!
+                </span>
+                <span v-else>
+                  {{ phoneNumbers[0].number }}
+                </span>
+              </button>
+              
+              <div class="h-6 w-px bg-gray-300 dark:bg-white/20" aria-hidden="true"></div>
+
+              <button
+                type="button"
+                @click="copyToClipboard(phoneNumbers[1].value)"
+                class="flex-1 rounded-md px-2 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500
+                       flex items-center justify-center"
+              >
+                <span v-if="copiedNumber === phoneNumbers[1].value" class="font-semibold text-green-500">
+                  Copied!
+                </span>
+                <span v-else>
+                  {{ phoneNumbers[1].number }}
+                </span>
               </button>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   </Transition>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-const isModalOpen = ref(false)
-
-const handleContactSubmit = () => {
-  alert('Form submitted! (This is a placeholder)')
-  isModalOpen.value = false // Close modal on submit
-}
-</script>
-
-<style scoped>
-</style>
