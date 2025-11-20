@@ -25,11 +25,11 @@ import {
 
 const Pages = [
   {
-    name: 'Home Page',
+    name: 'Басты Бет',
     path: '/'
   },
   {
-    name: 'Our Teachers',
+    name: 'Біздің Мұғалімдер',
     path: '/teachers'
   },
 ]
@@ -52,7 +52,7 @@ function copyToClipboard(numberToCopy) {
 </script>
 
 <template>
-  <header class="border-2 border-gray-100 bg-white dark:bg-gray-900 dark:border-white/5 z-50">
+  <header class="w-full border-2 border-gray-100 bg-white dark:bg-gray-900 dark:border-white/5 z-50">
     <nav class="mx-auto flex max-w-7xl justify-between px-8 py-1.5 lg:px-8" aria-label="Global">
       <div class="flex items-center gap-x-12">
         <div class="flex items-center">
@@ -66,14 +66,14 @@ function copyToClipboard(numberToCopy) {
         </div>
         
         <div class="hidden lg:flex justify-center gap-x-6 text-gray-900 dark:text-white">
-          <router-link to="/" class="text-sm/6 font-semibold opacity-80 hover:opacity-100 hover:bg-gray-100 dark:hover:bg-white/5 rounded-md px-3 py-2">Home Page</router-link>
-          <router-link to="/teachers" class="text-sm/6 font-semibold opacity-80 hover:opacity-100 hover:bg-gray-100 dark:hover:bg-white/5 rounded-md px-3 py-2">Our Teachers</router-link>
+          <router-link to="/" class="text-sm/6 font-semibold opacity-80 hover:opacity-100 hover:bg-gray-100 dark:hover:bg-white/5 rounded-md px-3 py-2">Басты бет</router-link>
+          <router-link to="/teachers" class="text-sm/6 font-semibold opacity-80 hover:opacity-100 hover:bg-gray-100 dark:hover:bg-white/5 rounded-md px-3 py-2">Біздің мұғалімдер</router-link>
         </div>
       </div>
       
       <div class="flex flex-1 gap-x-12 flex-end justify-end lg:hidden">
         <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-400" @click="mobileMenuOpen = true">
-          <span class="sr-only">Open main menu</span>
+          <span class="sr-only">Басты бетті ашу</span>
           <Bars3Icon class="size-6" aria-hidden="true" />
         </button>
       </div>
@@ -88,7 +88,7 @@ function copyToClipboard(numberToCopy) {
                   dark:text-white 
                   focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
           >
-            <span class>Contact us</span>
+            <span class>Бізбен хабарласыңыз</span>
             <ChevronDownIcon
               :class="open ? 'rotate-180' : ''"
               class="size-5 flex-none text-black/60 transition-transform duration-150 ease-in-out dark:text-white/60"
@@ -150,8 +150,8 @@ function copyToClipboard(numberToCopy) {
                     class="flex-1 rounded-md px-2 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500
                           flex items-center justify-center"
                   >
-                    <span v-if="copiedNumber === phoneNumbers[0].value" class="font-semibold text-green-500">
-                      Copied!
+                    <span v-if="copiedNumber === phoneNumbers[0].value" class="font-semibold">
+                      Көшірілді!
                     </span>
                     <span v-else>
                       {{ phoneNumbers[0].number }}
@@ -166,8 +166,8 @@ function copyToClipboard(numberToCopy) {
                     class="flex-1 rounded-md px-2 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500
                           flex items-center justify-center"
                   >
-                    <span v-if="copiedNumber === phoneNumbers[1].value" class="font-semibold text-green-500">
-                      Copied!
+                    <span v-if="copiedNumber === phoneNumbers[1].value" class="font-semibold">
+                      Көшірілді!
                     </span>
                     <span v-else>
                       {{ phoneNumbers[1].number }}
@@ -183,8 +183,10 @@ function copyToClipboard(numberToCopy) {
 
       <Dialog class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
         <div class="fixed inset-0 z-50"></div>
-        <DialogPanel class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:bg-gray-900 dark:sm:ring-gray-100/10">
-          <div class="flex items-center justify-between">
+        
+        <DialogPanel class="fixed inset-y-0 right-0 z-50 w-full bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:bg-gray-900 dark:sm:ring-gray-100/10 flex flex-col h-screen">
+          
+          <div class="flex items-center justify-between shrink-0">
             <a href="#" class="-m-1.5 p-1.5">
               <span class="sr-only">Sally Academy</span>
               <img class="h-14 w-auto dark:hidden" src="../assets/logo.svg" alt="SALLY ACADEMY">
@@ -195,53 +197,100 @@ function copyToClipboard(numberToCopy) {
               <XMarkIcon class="size-6" aria-hidden="true" />
             </button>
           </div>
-          <div class="mt-6 flow-root">
-            <div class="-my-6 divide-y divide-white dark:divide-white/10">
-              <div class="space-y-2 py-6">
-                <Disclosure as="div" class="-mx-3" v-slot="{ open }" defaultOpen>
-                  <DisclosureButton class="flex w-full items-center justify-between rounded-lg py-2 px-3 text-base/7 font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-white/5">
-                    Pages
-                    <ChevronDownIcon
-                      :class="open ? 'rotate-180' : ''"
-                      class="size-5 flex-none text-black/60 transition-transform duration-150 ease-in-out dark:text-white/60"
-                      aria-hidden="true"
-                    />
-                  </DisclosureButton>
-                  <DisclosurePanel class="mt-2 space-y-2">
-                    <router-link
-                      v-for="item in Pages"
-                      :key="item.name"
-                      :to="item.path"
-                      @click="mobileMenuOpen = false"  class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-black/900 dark:text-white hover:bg-gray-50 dark:hover:bg-white/5"
-                    >
-                      {{ item.name }}
-                    </router-link>
-                  </DisclosurePanel>
-                </Disclosure>
-                <div v-for="option in Contacts"
-                  :key="option.name"
-                  :href="option.href"
-                  class="group relative flex items-center gap-x-3 rounded-lg">
+          
+          <div class="mt-6 flex-1 flex flex-col justify-between">
+            <div class="space-y-2">
+              <Disclosure as="div" class="-mx-3" v-slot="{ open }" defaultOpen>
+                <DisclosureButton class="flex w-full items-center justify-between rounded-lg py-2 px-3 text-base/7 font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-white/5">
+                  Парақшалар
+                  <ChevronDownIcon
+                    :class="open ? 'rotate-180' : ''"
+                    class="size-5 flex-none text-black/60 transition-transform duration-150 ease-in-out dark:text-white/60"
+                    aria-hidden="true"
+                  />
+                </DisclosureButton>
+                <DisclosurePanel class="mt-2 space-y-2">
+                  <router-link
+                    v-for="item in Pages"
+                    :key="item.name"
+                    :to="item.path"
+                    @click="mobileMenuOpen = false"
+                    class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-white/5"
+                  >
+                    {{ item.name }}
+                  </router-link>
+                </DisclosurePanel>
+              </Disclosure>
+            </div>
+
+            <div class="shrink-0 pt-6">
+              <div class="space-y-3">
+                <div class="grid grid-cols-2 gap-3">
+                  <a
+                    v-for="social in socialButtons"
+                    :key="social.name"
+                    :href="social.href"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    :class="[
+                      'flex w-full items-center justify-center gap-x-2 rounded-lg px-3 py-3 text-sm font-semibold text-white transition-colors',
+                      social.class
+                    ]"
+                  >
+                    <component :is="social.icon" class="size-5" aria-hidden="true" />
+                    <span>{{ social.name }}</span>
+                  </a>
+                </div>
+                
+                <a
+                  :href="instagramLink.href"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  :class="[
+                    'flex w-full items-center justify-center gap-x-3 rounded-lg px-4 py-3 text-sm font-semibold text-white transition-opacity',
+                    instagramLink.class
+                  ]"
+                >
+                  <component :is="instagramLink.icon" class="size-5" aria-hidden="true" />
+                  <span>{{ instagramLink.name }}</span>
+                </a>
+              </div>
+
+              <div class="border-t border-gray-200/50 dark:border-white/10 pt-4 mt-4">
+                <div class="flex items-center text-sm">
+                  <button
+                    type="button"
+                    @click="copyToClipboard(phoneNumbers[0].value)"
+                    class="flex-1 rounded-md px-2 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500
+                            flex items-center justify-center"
+                  >
+                    <span v-if="copiedNumber === phoneNumbers[0].value" class="font-semibold text-gray-700 dark:text-gray-200">
+                      Көшірілді!
+                    </span>
+                    <span v-else>
+                      {{ phoneNumbers[0].number }}
+                    </span>
+                  </button>
                   
-                  <div 
-                    :style="{ backgroundColor: option.color }"
-                    class="flex size-9 flex-none items-center justify-center rounded-lg"
-                    >
-                    <component :is="option.icon" class="size-6 text-white" aria-hidden="true" />
-                  </div>
-                  <div class="flex-auto">
-                    <a 
-                      :href="option.href" 
-                      class="block font-semibold text-sm/7 text-gray-900 dark:text-white opacity-80 hover:opacity-100"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {{ option.name }}
-                    </a>
-                  </div>
+                  <div class="h-6 w-px bg-gray-300 dark:bg-white/20" aria-hidden="true"></div>
+
+                  <button
+                    type="button"
+                    @click="copyToClipboard(phoneNumbers[1].value)"
+                    class="flex-1 rounded-md px-2 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500
+                            flex items-center justify-center"
+                  >
+                    <span v-if="copiedNumber === phoneNumbers[1].value" class="font-semibold text-gray-700 dark:text-gray-200">
+                      Көшірілді!
+                    </span>
+                    <span v-else>
+                      {{ phoneNumbers[1].number }}
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
+            
           </div>
         </DialogPanel>
       </Dialog>

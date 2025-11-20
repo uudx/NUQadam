@@ -1,19 +1,20 @@
 <script setup>
 import Header from '../Header.vue'
-import Footer from '../Footer.vue'
 </script>
 
 <template>
-    <header>
+    <header class="sticky-header">
         <Header/>
     </header>
     <main>
         <slot/>
     </main>
-    <footer>
-        <Footer/>
-    </footer>
 </template>
 
 <style scoped>
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
 </style>

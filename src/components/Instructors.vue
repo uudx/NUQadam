@@ -52,12 +52,11 @@ const cards = ref([
   }
 ])
 
-// --- Logic for STYLE 1: Carousel ---
 const sliderIndex = ref(Math.floor(cards.value.length / 2));
 const viewportRef = ref(null);
 const viewportWidth = ref(0);
-const cardWidth = 256; // w-64
-const cardGap = 32; // mx-4 (1rem * 2)
+const cardWidth = 256;
+const cardGap = 32;
 const cardWidthWithGap = cardWidth + cardGap;
 
 const sliderOffset = computed(() => {
@@ -79,23 +78,20 @@ const prevInstructor = () => {
   <section class="py-16 px-6 lg:px-8 bg-gray-100 dark:bg-black">
     <div class="container mx-auto">
       <h2 class="text-4xl font-extrabold text-center text-blue-800 dark:text-blue-400">
-        Meet Our Expert Instructors
+        Біздің оқытушылар құрамы
       </h2>
       <router-link to="/teachers">
         <h4 class="text-xl font-extrabold text-center text-gray-700/40 dark:text-gray-300/40 mb-6">
-          Click to see more
+          Толығырақ
         </h4>
       </router-link>
-      <!-- Automatically wraps and centers the cards -->
       <div class="flex flex-wrap justify-center gap-8">
         <div
           v-for="card in cards"
           :key="card.id"
           class="w-full sm:w-64 md:w-72 bg-white dark:bg-gray-900 rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300"
         >
-          <!-- Card Content -->
           <div class="p-6 text-center">
-            <!-- Image Placeholder -->
             <div class="w-24 h-24 rounded-full mx-auto flex items-center justify-center text-white opacity-90 bg-linear-to-br from-blue-400 to-indigo-600 mb-4 shadow-lg">
               <img 
                 v-lazy="card.image"
@@ -103,9 +99,7 @@ const prevInstructor = () => {
               >
             </div>
             
-            <!-- Name -->
             <h4 class="text-xl font-semibold text-gray-900 dark:text-white">{{ card.name }}</h4>
-            <!-- Title -->
             <p class="text-sm text-blue-600 dark:text-blue-400 mb-4">{{ card.title }}</p>
           </div>
         </div>

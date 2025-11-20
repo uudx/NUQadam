@@ -4,12 +4,9 @@ import { ref } from 'vue';
 const openFAQ = ref(null); // Holds the ID of the open question
 
 const faqList = ref([
-  { id: 1, question: 'How does this online course work?', answer: 'Our platform offers flexible learning. You\'ll have access to video lessons, interactive exercises, live classes with instructors, and a community forum. Study at your own pace!' },
-  { id: 2, question: 'What materials are included?', answer: 'Each course provides comprehensive digital textbooks, audio exercises, video tutorials, downloadable worksheets, and access to our exclusive learning resources.' },
-  { id: 3, question: 'Do I need prior English knowledge?', answer: 'We offer courses for all levels, from absolute beginners to advanced speakers. Our placement test helps you find the perfect starting point for your journey.' },
-  { id: 4, question: 'How long do I have access to the course?', answer: 'Once purchased, you get lifetime access to all course materials, including future updates. Study anytime, anywhere, at your convenience.' },
-  { id: 5, question: 'Can I get a certificate?', answer: 'Yes, upon successful completion of any course, you will receive a verifiable certificate that you can share on your resume or LinkedIn.' },
-  { id: 6, question: 'What if I\'m not satisfied?', answer: 'We offer a 30-day money-back guarantee, no questions asked. We are confident you\'ll love our platform.' },
+  { id: 1, question: 'Бұл онлайн курс қалай жұмыс істейді?', answer: 'Курс видео дәрістер, жаттығулар және тесттер арқылы ұйымдастырылған. Сіз өз темпіңізде оқып, білімді біртіндеп меңгере аласыз.' },
+  { id: 2, question: 'Қандай материалдар кіреді?', answer: 'Курсқа видео сабақтар, оқу материалдары, интерактивті жаттығулар және қосымша PDF-кітапшалар кіреді.' },
+  { id: 3, question: 'Маған ағылшын тілін алдын ала білу керек пе?', answer: 'Жоқ, курс барлық деңгейдегі оқушыларға арналған - бастаушыдан бастап ілгерілеушілерге дейін.' },
 ]);
 
 const toggleFAQ = (id) => {
@@ -42,7 +39,7 @@ const onAccordionLeave = (el) => {
 
 <template>
   <section class="container mx-auto py-16 px-6 lg:px-8 bg-white dark:bg-black">
-    <h2 class="text-4xl font-extrabold text-center text-[#b12c00] dark:text-red-400 mb-12">Frequently Asked Questions</h2>
+    <h2 class="text-4xl font-extrabold text-center text-[#b12c00] dark:text-red-400 mb-12">Жиі қойылатын сұрақтар</h2>
     <div class="max-w-3xl mx-auto">
       <div 
         v-for="faq in faqList" 
@@ -61,7 +58,7 @@ const onAccordionLeave = (el) => {
           </svg>
         </button>
         <transition name="accordion" @enter="onAccordionEnter" @leave="onAccordionLeave">
-          <div v-show="openFAQ === faq.id" class="overflow-hidden">
+          <div v-if="openFAQ === faq.id" class="overflow-hidden">
             <p class="text-gray-700 dark:text-gray-300 leading-relaxed pb-6 pr-8">
               {{ faq.answer }}
             </p>
@@ -82,7 +79,6 @@ const onAccordionLeave = (el) => {
 }
 .accordion-enter-from,
 .accordion-leave-to {
-  height: 0 !important;
   opacity: 0;
 }
 </style>
