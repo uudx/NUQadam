@@ -14,23 +14,25 @@
     
     <div class="rounded-sm grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-6 pb-6 dark:bg-gray-900">
       <div
-        v-for="(card) in cards"
-        :key="card.id"
+        v-for="(teacher) in cards"
+        :key="teacher.id"
         class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:shadow-blue-300 dark:hover:shadow-blue-900/50 dark:shadow-gray-900"
       >
         <img 
-          v-lazy="card.image"
-          :alt="card.title"
+          :src="getImagePath(teacher.image)"
+          :alt="teacher.name"
+          loading="lazy"
           class="w-full h-120 object-cover"
         >
         <div class="p-6">
-          <h3 class="text-2xl font-extrabold text-gray-900 dark:text-white mb-5 border-b dark:border-gray-700 pb-3"> {{ card.title }}
+          <h3 class="text-2xl font-extrabold text-gray-900 dark:text-white mb-5 border-b dark:border-gray-700 pb-3"> 
+            {{ teacher.name }}
           </h3>
           
           <div class="space-y-4 text-sm">
             
             <div 
-              v-for="(block, blockIndex) in card.about"
+              v-for="(block, blockIndex) in teacher.about"
               :key="blockIndex"
               
               :class="getBlockColors(blockIndex)" 
@@ -73,6 +75,14 @@
 
 <script setup>
 import { cards } from '../../data/teachers.js';
+
+const base = import.meta.env.BASE_URL
+
+const getImagePath = (imagePath) => {
+  if (!imagePath) return ''
+  const cleanPath = imagePath.replace('?url', '').replace(/^\/\//, '/')
+  return cleanPath.startsWith('/') ? `${base}${cleanPath.slice(1)}` : `${base}${cleanPath}`
+}
 
 const colorPalettes = [
   { 

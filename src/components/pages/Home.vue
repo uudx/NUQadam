@@ -11,10 +11,10 @@
 
 <script setup>
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
-import Hero from '../Hero.vue';
-import Motivation from '../Motivation.vue';
-import Instructors from '../Instructors.vue';
-import Features from '../Features.vue';
-import CallToAction from '../CallToAction.vue';
-import FAQ from '../FAQ.vue';
+import Hero from '@/components/Hero.vue';
+import Motivation from '@/components/Motivation.vue';
+import Instructors from '@/components/Instructors.vue';
+import Features from '@/components/Features.vue';
+import CallToAction from '@/components/CallToAction.vue';
+import FAQ from '@/components/FAQ.vue';
 </script>

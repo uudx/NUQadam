@@ -5,49 +5,49 @@ const base = import.meta.env.BASE_URL
 const cards = ref([
   {
     id: 1,
-    image: '${base}/resources/webp/pfp/1.webp?url',
+    image: `${base}/resources/webp/pfp/1.webp?url`,
     name: 'Әбжан Бауыржан',
     title: 'Мұғалім'
   },
   {
     id: 2,
-    image: '${base}/resources/webp/pfp/2.webp?url',
+    image: `${base}/resources/webp/pfp/2.webp?url`,
     name: 'Серікулы Рамазан',
     title: 'Мұғалім'
   },
   {
     id: 3,
-    image: '${base}/resources/webp/pfp/3.webp?url',
+    image: `${base}/resources/webp/pfp/3.webp?url`,
     name: 'Тушжанов Мади',
     title: 'Мұғалім'
   },
   {
     id: 4,
-    image: '${base}/resources/webp/pfp/4.webp?url',
+    image: `${base}/resources/webp/pfp/4.webp?url`,
     name: 'Ибрагим Даурен',
     title: 'Қалаушы'
   },
   {
     id: 5,
-    image: '${base}/resources/webp/pfp/5.webp?url',
+    image: `${base}/resources/webp/pfp/5.webp?url`,
     name: 'Абикенова Нурлы',
     title: 'Мұғалім'
   },
   {
     id: 6,
-    image: '${base}/resources/webp/pfp/6.webp?url',
+    image: `${base}/resources/webp/pfp/6.webp?url`,
     name: 'Сансызбай Байнур',
     title: 'Мұғалім'
   },
   {
     id: 7,
-    image: '${base}/resources/webp/pfp/7.webp?url',
+    image: `${base}/resources/webp/pfp/7.webp?url`,
     name: 'Қуаныш Кевлинжан',
     title: 'Мұғалім'
   },
   {
     id: 8,
-    image: '${base}/resources/webp/pfp/8.webp?url',
+    image: `${base}/resources/webp/pfp/8.webp?url`,
     name: 'Ерзатулы Әділжан',
     title: 'Мұғалім'
   }
@@ -75,8 +75,9 @@ const cards = ref([
           <div class="p-6 text-center">
             <div class="w-24 h-24 rounded-full mx-auto flex items-center justify-center text-white opacity-90 bg-linear-to-br from-blue-400 to-indigo-600 mb-4 shadow-lg">
               <img 
-                v-lazy="teacher.image"
+                :src="teacher.image"
                 :alt="teacher.name"
+                loading="lazy"
               >
             </div>
             

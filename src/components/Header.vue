@@ -23,8 +23,8 @@ import {
   phoneNumbers 
 } from '../data/socials.js'
 
-import logoImage from '../assets/logo.svg?component'
-import logoWhiteImage from '../assets/logo_white.svg?component'
+const logo = 'resources/webp/logo.svg'
+const logoWhite = 'resources/webp/logo_white.svg'
 
 const Pages = [
   {
@@ -61,10 +61,8 @@ function copyToClipboard(numberToCopy) {
         <div class="flex items-center">
           <a href="#" class="-m-1 p-1 flex items-center gap-x-2">
             <span class="sr-only">Sally Academy</span>
-            
-            <logoImage class="h-8 w-auto dark:hidden"/>
-            
-            <logoWhiteImage class="h-8 w-auto hidden dark:block"/>
+            <img class="h-8 w-auto dark:hidden" :src="logo" alt="Sally Academy"/>
+            <img class="h-8 w-auto hidden dark:block" :src="logoWhite" alt="Sally Academy"/>
           </a>
         </div>
         
@@ -192,8 +190,8 @@ function copyToClipboard(numberToCopy) {
           <div class="flex items-center justify-between shrink-0">
             <a href="#" class="-m-1.5 p-1.5">
               <span class="sr-only">Sally Academy</span>
-              <img class="h-14 w-auto dark:hidden" src="../assets/logo.svg" alt="SALLY ACADEMY">
-              <img class="h-14 w-auto hidden dark:block" src="../assets/logo_white.svg" alt="SALLY ACADEMY">
+              <img class="h-14 w-auto dark:hidden" :src="logo" alt="SALLY ACADEMY">
+              <img class="h-14 w-auto hidden dark:block" :src="logoWhite" alt="SALLY ACADEMY">
             </a>
             <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-400" @click="mobileMenuOpen = false">
               <span class="sr-only">Close menu</span>

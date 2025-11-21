@@ -1,6 +1,8 @@
 <script setup>
 import { PuzzlePieceIcon } from '@heroicons/vue/16/solid'
 import { SparklesIcon, ChatBubbleLeftRightIcon, PresentationChartLineIcon } from '@heroicons/vue/24/outline'
+const base = import.meta.env.BASE_URL
+const methodologyImage = `${base}resources/webp/visuals/methodology.webp`
 </script>
 
 <template>
@@ -29,7 +31,7 @@ import { SparklesIcon, ChatBubbleLeftRightIcon, PresentationChartLineIcon } from
               </p>
             </div>
             <div class="w-full h-48 bg-gray-100 dark:bg-gray-800 rounded-lg mt-6 flex items-center justify-center text-gray-400">
-              <img src="/resources/webp/visuals/methodology.webp" class="max-w-full max-h-full" aria-hidden="true">
+              <img :src="methodologyImage" class="max-w-full max-h-full" aria-hidden="true">
             </div>
           </div>
         </div>

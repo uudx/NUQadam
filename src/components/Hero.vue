@@ -7,6 +7,10 @@ import {
   phoneNumbers
 } from '../data/socials.js'
 
+const base = import.meta.env.BASE_URL
+
+const heroImage = `${base}resources/webp/photos/0.webp`
+
 const isModalOpen = ref(false)
 
 const copiedNumber = ref(null)
@@ -27,7 +31,7 @@ function copyToClipboard(numberToCopy) {
 <template>
   <section class="relative bg-black text-white overflow-hidden">
     <div class="absolute inset-0 z-0 w-full h-full bg-gray-800 flex items-center justify-center">
-      <img src="/resources/webp/photos/0.webp" alt="Students learning English" class="w-full h-full object-cover opacity-30 dark:opacity-40">
+      <img :src="heroImage" alt="Students learning English" class="w-full h-full object-cover opacity-30 dark:opacity-40">
       <div class="absolute inset-0 bg-linear-to-r from-black/80 via-black/60 to-black/30"></div>
     </div>
 

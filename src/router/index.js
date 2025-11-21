@@ -1,25 +1,26 @@
-import { createWebHashHistory, createRouter } from 'vue-router'
-
-import Home from '../components/pages/Home.vue'
-import Teachers from '../components/pages/Teachers.vue'
+import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
-  { 
-    path: '/', 
+  {
+    path: '/',
     name: 'Home',
-    component: Home
+    component: () => import('@/components/pages/Home.vue')
   },
-
-  { 
+  {
     path: '/teachers',
-    name: 'Teachers',
-    component: Teachers
-  },
+    name: 'Teachers', 
+    component: () => import('@/components/pages/Teachers.vue')
+  }
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
+  history: createWebHistory('/NUQadam/'),
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    return savedPosition || new Promise((resolve) => {
+      setTimeout(() => resolve({ top: 0 }), 300)
+    })
+  }
 })
 
 export default router
