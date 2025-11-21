@@ -27,10 +27,10 @@ export const instagramLink = {
 export const phoneNumbers = [
     {
         number: '+7 (707) 109-0830',
-        value: '+77001234567'
+        value: '+77071090830'
     },
     {
         number: '+7 (776) 526-9076',
-        value: '+77019876543'
+        value: '+77765269076'
     },
 ]

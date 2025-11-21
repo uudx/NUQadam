@@ -3,13 +3,16 @@ import './App.css'
 import router from './router'
 import App from './App.vue'
 import VueLazyload from 'vue-lazyload'
+const base = import.meta.env.BASE_URL
 
 
 const app = createApp(App)
 
+app.use(router)
+
 app.use(VueLazyload, {
-  loading: '../src/components/resources/loading.gif',    // путь к плейсхолдеру
-  error: '../src/components/resources/error.gif',        // путь к ошибке
+  loading: '${base}resources/loading.gif',
+  error: '${base}resources/error.gif',
   attempt: 1
 })
 

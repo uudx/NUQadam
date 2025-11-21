@@ -1,9 +1,10 @@
 import { ref } from 'vue'
+const base = import.meta.env.BASE_URL
 
 export const cards = ref([
   {
     id: 1,
-    image: '/resources/webp/photos/1.webp',
+    image: '${base}/resources/webp/photos/1.webp?url',
     title: 'Әбжан Бауыржан',
     about: [
       [
@@ -28,7 +29,7 @@ export const cards = ref([
   },
   {
     id: 2,
-    image: '/resources/webp/photos/2.webp',
+    image: '${base}/resources/webp/photos/2.webp?url',
     title: 'Серікулы Рамазан',
     about: [
       [
@@ -49,7 +50,7 @@ export const cards = ref([
   },
   {
     id: 3,
-    image: '/resources/webp/photos/3.webp',
+    image: '${base}/resources/webp/photos/3.webp?url',
     title: 'Тушжанов Мади',
     about: [
       [
@@ -78,7 +79,7 @@ export const cards = ref([
   },
   {
     id: 4,
-    image: '/resources/webp/photos/5.webp',
+    image: '${base}/resources/webp/photos/5.webp?url',
     title: 'Абикенова Нурлы',
     about: [
       [
@@ -98,7 +99,7 @@ export const cards = ref([
   },
   {
     id: 5,
-    image: '/resources/webp/photos/6.webp',
+    image: '${base}/resources/webp/photos/6.webp?url',
     title: 'Сансызбай Байнур',
     about: [
       [
@@ -123,7 +124,7 @@ export const cards = ref([
   },
   {
     id: 6,
-    image: '/resources/webp/photos/7.webp',
+    image: '${base}/resources/webp/photos/7.webp?url',
     title: 'Қуаныш Кевлинжан',
     about: [
       [
@@ -147,7 +148,7 @@ export const cards = ref([
   },
   {
     id: 7,
-    image: '/resources/webp/photos/8.webp',
+    image: '${base}/resources/webp/photos/8.webp?url',
     title: 'Ерзатулы Әділжан',
     about: [
       [

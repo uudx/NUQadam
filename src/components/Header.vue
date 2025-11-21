@@ -23,6 +23,9 @@ import {
   phoneNumbers 
 } from '../data/socials.js'
 
+import logoImage from '../assets/logo.svg?component'
+import logoWhiteImage from '../assets/logo_white.svg?component'
+
 const Pages = [
   {
     name: 'Басты Бет',
@@ -59,9 +62,9 @@ function copyToClipboard(numberToCopy) {
           <a href="#" class="-m-1 p-1 flex items-center gap-x-2">
             <span class="sr-only">Sally Academy</span>
             
-            <img class="h-8 w-auto dark:hidden" src="../assets/logo.svg" alt="Sally Academy">
+            <logoImage class="h-8 w-auto dark:hidden"/>
             
-            <img class="h-8 w-auto hidden dark:block" src="../assets/logo_white.svg" alt="Sally Academy">
+            <logoWhiteImage class="h-8 w-auto hidden dark:block"/>
           </a>
         </div>
         

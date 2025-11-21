@@ -6,9 +6,7 @@ import Header from '../Header.vue'
     <header class="sticky-header">
         <Header/>
     </header>
-    <main>
-        <slot/>
-    </main>
+    <slot/>
 </template>
 
 <style scoped>
