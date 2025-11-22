@@ -23,8 +23,8 @@ import {
   phoneNumbers 
 } from '../data/socials.js'
 
-const logo = 'resources/webp/logo.svg'
-const logoWhite = 'resources/webp/logo_white.svg'
+const logo = 'resources/logo.svg'
+const logoWhite = 'resources/logo_white.svg'
 
 const Pages = [
   {
