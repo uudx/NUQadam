@@ -5,18 +5,18 @@
         to="/" 
         class="inline-flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-[#b12c00] dark:hover:text-blue-400 transition-colors font-bold text-lg"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-        </svg>
-        Басты бетке оралу
-      </router-link>
+        </router-link>
     </div>
     
     <div class="rounded-sm grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-6 pb-6 dark:bg-gray-900">
-      <div
+      
+      <router-link
         v-for="(teacher) in cards"
         :key="teacher.id"
-        class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:shadow-blue-300 dark:hover:shadow-blue-900/50 dark:shadow-gray-900"
+        :to="{ name: 'TeacherDetails', params: { id: teacher.id } }"
+        
+        class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:shadow-blue-300 dark:hover:shadow-blue-900/50 dark:shadow-gray-900 block" 
+        style="text-decoration: none;"
       >
         <img 
           :src="getImagePath(teacher.image)"
@@ -30,11 +30,9 @@
           </h3>
           
           <div class="space-y-4 text-sm">
-            
             <div 
               v-for="(block, blockIndex) in teacher.about"
               :key="blockIndex"
-              
               :class="getBlockColors(blockIndex)" 
               class="rounded-lg p-3 relative overflow-hidden transition-colors duration-200" 
             >
@@ -68,8 +66,8 @@
             
           </div>
         </div>
+      </router-link>
       </div>
-    </div>
   </div>
 </template>
 

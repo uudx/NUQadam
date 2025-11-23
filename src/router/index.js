@@ -10,6 +10,12 @@ const routes = [
     path: '/teachers',
     name: 'Teachers', 
     component: () => import('@/components/pages/Teachers.vue')
+  },
+  {
+    path: '/teachers/:id',
+    name: 'TeacherDetails', 
+    component: () => import('@/components/pages/TeacherDetails.vue'),
+    props: true 
   }
 ]
 
