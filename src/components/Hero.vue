@@ -37,7 +37,7 @@ const navigateToWhatsApp = () => {
       <div class="absolute inset-0 bg-linear-to-r from-black/80 via-black/60 to-black/30"></div>
     </div>
 
-    <div class="relative z-10 container mx-auto flex flex-col lg:flex-row min-h-screen items-center pt-24 lg:pt-0 pb-16 px-6">
+    <div class="relative z-10 container mx-auto flex flex-col lg:flex-row min-h-screen items-center pt-10 lg:pt-0 pb-16 px-6">
       <div class="lg:w-1/2">
         <div class="order-1">
           <h1 class="z-10 text-4xl lg:text-5xl font-extrabold text-white"> Ағылшын Тілі </h1>
