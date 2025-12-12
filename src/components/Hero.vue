@@ -26,18 +26,18 @@ function copyToClipboard(numberToCopy) {
 }
 
 const navigateToWhatsApp = () => {
-  window.open(whatsappLink.href.value, '_blank');
+  window.open(whatsappLink.href, '_blank');
 }
 </script>
 
 <template>
-  <section class="relative bg-black text-white overflow-hidden">
+  <section class="relative bg-black text-white overflow-hidden items-center h-[55vh] lg:h-[90vh]">
     <div class="absolute inset-0 z-0 w-full h-full bg-gray-800 flex items-center justify-center">
-      <img :src="heroImage" alt="Students learning English" class="w-full h-full object-cover opacity-30 dark:opacity-40">
+      <img :src="heroImage" alt="Students learning English" class="w-full h-full object-cover object-center opacity-30 dark:opacity-40">
       <div class="absolute inset-0 bg-linear-to-r from-black/80 via-black/60 to-black/30"></div>
     </div>
 
-    <div class="relative z-10 container mx-auto flex flex-col lg:flex-row items-center min-h-screen pt-24 pb-16 px-6">
+    <div class="relative z-10 container mx-auto flex flex-col lg:flex-row min-h-screen items-center pt-24 lg:pt-0 pb-16 px-6">
       <div class="lg:w-1/2">
         <div class="order-1">
           <h1 class="z-10 text-4xl lg:text-5xl font-extrabold text-white"> Ағылшын Тілі </h1>
@@ -54,17 +54,17 @@ const navigateToWhatsApp = () => {
           >
               Байланыс
           </button>
-            <button 
-             @modal="navigateToWhatsApp"
-             class="bg-transparent border-2 border-gray-500 text-gray-300 hover:border-white hover:text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 mx-2"
-             >
-                Жазылу
-            </button>
-          </div>
+          <button 
+            @click="navigateToWhatsApp"
+            class="bg-transparent border-2 border-gray-500 text-gray-300 hover:border-white hover:text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 mx-2"
+            >
+              Жазылу
+          </button>
         </div>
       </div>
-    </section>
-    <Transition name="modal">
+    </div>
+  </section>
+  <Transition name="modal">
     <div
       v-if="isModalOpen"
       class="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-6"

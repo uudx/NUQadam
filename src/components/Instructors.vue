@@ -17,14 +17,9 @@ const getImagePath = (imagePath) => {
 <template>
   <section class="py-16 px-6 lg:px-8 bg-gray-100 dark:bg-black">
     <div class="container mx-auto">
-      <h2 class="text-4xl font-extrabold text-center text-blue-800 dark:text-blue-400">
+      <h2 class="text-4xl font-extrabold text-center text-blue-800 dark:text-blue-400 mb-6">
         Біздің оқытушылар құрамы
       </h2>
-      <router-link to="/teachers">
-        <h4 class="text-xl font-extrabold text-center text-gray-700/40 dark:text-gray-300/40 mb-6">
-          Толығырақ
-        </h4>
-      </router-link>
       <div class="flex flex-wrap justify-center gap-8">
         <router-link
           v-for="teacher in cardspfp"

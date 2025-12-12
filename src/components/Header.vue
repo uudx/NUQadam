@@ -54,12 +54,22 @@ function copyToClipboard(numberToCopy) {
     <nav class="mx-auto flex max-w-7xl justify-between px-8 py-1.5 lg:px-8" aria-label="Global">
       <div class="flex items-center gap-x-12">
         <div class="flex items-center">
-          <a href="#" class="-m-1 p-1 flex items-center gap-x-2">
+          <router-link 
+            :to="{name: 'Home'}" 
+            class="-m-1 p-1 flex items-center gap-x-2"
+          >
             <span class="sr-only">Sally Academy</span>
             <img class="h-8 w-auto dark:hidden" :src="logo" alt="Sally Academy"/>
             <img class="h-8 w-auto hidden dark:block" :src="logoWhite" alt="Sally Academy"/>
-          </a>
+          </router-link>
         </div>
+      </div>
+
+      <div class="flex flex-1 gap-x-12 flex-end justify-end lg:hidden">
+        <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-400" @click="mobileMenuOpen = true">
+          <span class="sr-only">Басты бетті ашу</span>
+          <Bars3Icon class="size-6" aria-hidden="true" />
+        </button>
       </div>
 
       <PopoverGroup class="hidden lg:flex">

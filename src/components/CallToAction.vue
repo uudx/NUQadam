@@ -3,7 +3,7 @@ import { computed } from 'vue';
 import { whatsappLink } from '../data/socials.js'
 
 const navigateToWhatsApp = () => {
-  window.open(whatsappLink.href.value, '_blank');
+  window.open(whatsappLink.href, '_blank');
 }
 
 </script>
