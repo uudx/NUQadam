@@ -7,12 +7,7 @@ const routes = [
     component: () => import('@/components/pages/Home.vue')
   },
   {
-    path: '/teachers',
-    name: 'Teachers', 
-    component: () => import('@/components/pages/Teachers.vue')
-  },
-  {
-    path: '/teachers/:id',
+    path: '/:id',
     name: 'TeacherDetails', 
     component: () => import('@/components/pages/TeacherDetails.vue'),
     props: true 
@@ -23,9 +18,8 @@ const router = createRouter({
   history: createWebHistory('/NUQadam/'),
   routes,
   scrollBehavior(to, from, savedPosition) {
-    return savedPosition || new Promise((resolve) => {
-      setTimeout(() => resolve({ top: 0 }), 300)
-    })
+    if (savedPosition) return savedPosition
+    return { top: 0 }
   }
 })
 

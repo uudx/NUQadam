@@ -1,16 +1,9 @@
 <script setup>
 import { computed } from 'vue';
-import { socialButtons } from '../data/socials.js'
-
-const whatsappHref = computed(() => {
-  const whatsappButton = socialButtons.find(item => item.name === 'WhatsApp');
-  return whatsappButton ? whatsappButton.href : '#';
-});
+import { whatsappLink } from '../data/socials.js'
 
 const navigateToWhatsApp = () => {
-  if (whatsappHref.value && whatsappHref.value !== '#') {
-    window.open(whatsappHref.value, '_blank');
-  }
+  window.open(whatsappLink.href.value, '_blank');
 }
 
 </script>

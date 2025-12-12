@@ -78,7 +78,7 @@ export const cards = ref([
   },
   {
     id: 4,
-    image: 'resources/webp/photos/5.webp',
+    image: 'resources/webp/photos/4.webp',
     name: 'Абикенова Нурлы',
     about: [
       [
@@ -98,7 +98,7 @@ export const cards = ref([
   },
   {
     id: 5,
-    image: 'resources/webp/photos/6.webp',
+    image: 'resources/webp/photos/5.webp',
     name: 'Сансызбай Байнур',
     about: [
       [
@@ -123,7 +123,7 @@ export const cards = ref([
   },
   {
     id: 6,
-    image: 'resources/webp/photos/7.webp',
+    image: 'resources/webp/photos/6.webp',
     name: 'Қуаныш Кевлинжан',
     about: [
       [
@@ -147,7 +147,7 @@ export const cards = ref([
   },
   {
     id: 7,
-    image: 'resources/webp/photos/8.webp',
+    image: 'resources/webp/photos/7.webp',
     name: 'Ерзатулы Әділжан',
     about: [
       [
@@ -166,5 +166,50 @@ export const cards = ref([
         '50-ден астам оқушыны сәтті дайындап үздік нәтиже көрсетуге көмектескен',
       ],
     ]
+  }
+])
+
+export const cardspfp = ref([
+  {
+    id: 1,
+    image: 'resources/webp/pfp/1.webp',
+    name: 'Әбжан Бауыржан',
+    title: 'Мұғалім'
+  },
+  {
+    id: 2,
+    image: 'resources/webp/pfp/2.webp',
+    name: 'Серікулы Рамазан',
+    title: 'Мұғалім'
+  },
+  {
+    id: 3,
+    image: 'resources/webp/pfp/3.webp',
+    name: 'Тушжанов Мади',
+    title: 'Мұғалім'
+  },
+  {
+    id: 4,
+    image: 'resources/webp/pfp/4.webp',
+    name: 'Абикенова Нурлы',
+    title: 'Мұғалім'
+  },
+  {
+    id: 5,
+    image: 'resources/webp/pfp/5.webp',
+    name: 'Сансызбай Байнур',
+    title: 'Мұғалім'
+  },
+  {
+    id: 6,
+    image: 'resources/webp/pfp/6.webp',
+    name: 'Қуаныш Кевлинжан',
+    title: 'Мұғалім'
+  },
+  {
+    id: 7,
+    image: 'resources/webp/pfp/7.webp',
+    name: 'Ерзатулы Әділжан',
+    title: 'Мұғалім'
   }
 ])

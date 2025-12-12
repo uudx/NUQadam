@@ -18,22 +18,18 @@ import {
 } from '@heroicons/vue/20/solid'
 
 import { 
-  socialButtons, 
-  instagramLink, 
+  whatsappLink,
   phoneNumbers 
 } from '../data/socials.js'
 
-const logo = 'resources/logo.svg'
+const base = import.meta.env.BASE_URL
+const logo = `${base}resources/logo.svg`
 const logoWhite = 'resources/logo_white.svg'
 
 const Pages = [
   {
     name: 'Басты Бет',
     path: '/'
-  },
-  {
-    name: 'Біздің Мұғалімдер',
-    path: '/teachers'
   },
 ]
 
@@ -51,7 +47,6 @@ function copyToClipboard(numberToCopy) {
     console.error('Failed to copy: ', err)
   })
 }
-
 </script>
 
 <template>
@@ -65,18 +60,6 @@ function copyToClipboard(numberToCopy) {
             <img class="h-8 w-auto hidden dark:block" :src="logoWhite" alt="Sally Academy"/>
           </a>
         </div>
-        
-        <div class="hidden lg:flex justify-center gap-x-6 text-gray-900 dark:text-white">
-          <router-link to="/" class="text-sm/6 font-semibold opacity-80 hover:opacity-100 hover:bg-gray-100 dark:hover:bg-white/5 rounded-md px-3 py-2">Басты бет</router-link>
-          <router-link to="/teachers" class="text-sm/6 font-semibold opacity-80 hover:opacity-100 hover:bg-gray-100 dark:hover:bg-white/5 rounded-md px-3 py-2">Біздің мұғалімдер</router-link>
-        </div>
-      </div>
-      
-      <div class="flex flex-1 gap-x-12 flex-end justify-end lg:hidden">
-        <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-400" @click="mobileMenuOpen = true">
-          <span class="sr-only">Басты бетті ашу</span>
-          <Bars3Icon class="size-6" aria-hidden="true" />
-        </button>
       </div>
 
       <PopoverGroup class="hidden lg:flex">
@@ -89,7 +72,7 @@ function copyToClipboard(numberToCopy) {
                   dark:text-white 
                   focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
           >
-            <span class>Бізбен хабарласыңыз</span>
+            <span class>Бізбен Байланыс</span>
             <ChevronDownIcon
               :class="open ? 'rotate-180' : ''"
               class="size-5 flex-none text-black/60 transition-transform duration-150 ease-in-out dark:text-white/60"
@@ -112,34 +95,18 @@ function copyToClipboard(numberToCopy) {
                     dark:bg-gray-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10"
             >
               <div class="p-4 space-y-3">
-                <div class="grid grid-cols-2 gap-3">
-                  <a
-                    v-for="social in socialButtons"
-                    :key="social.name"
-                    :href="social.href"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    :class="[
-                      'flex w-full items-center justify-center gap-x-2 rounded-lg px-3 py-3 text-sm font-semibold text-white transition-colors',
-                      social.class
-                    ]"
-                  >
-                    <component :is="social.icon" class="size-5" aria-hidden="true" />
-                    <span>{{ social.name }}</span>
-                  </a>
-                </div>
-
                 <a
-                  :href="instagramLink.href"
+                  v-if="whatsappLink"
+                  :href="whatsappLink.href"
                   target="_blank"
                   rel="noopener noreferrer"
                   :class="[
                     'flex w-full items-center justify-center gap-x-3 rounded-lg px-4 py-3 text-sm font-semibold text-white transition-opacity',
-                    instagramLink.class
+                    whatsappLink.class
                   ]"
                 >
-                  <component :is="instagramLink.icon" class="size-5" aria-hidden="true" />
-                  <span>{{ instagramLink.name }}</span>
+                  <component :is="whatsappLink.icon" class="size-5" aria-hidden="true" />
+                  <span>{{ whatsappLink.name }}</span>
                 </a>
               </div>
 
@@ -194,7 +161,7 @@ function copyToClipboard(numberToCopy) {
               <img class="h-14 w-auto hidden dark:block" :src="logoWhite" alt="SALLY ACADEMY">
             </a>
             <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-400" @click="mobileMenuOpen = false">
-              <span class="sr-only">Close menu</span>
+              <span class="sr-only">Мәзірді жабу</span>
               <XMarkIcon class="size-6" aria-hidden="true" />
             </button>
           </div>
@@ -226,34 +193,17 @@ function copyToClipboard(numberToCopy) {
 
             <div class="shrink-0 pt-6">
               <div class="space-y-3">
-                <div class="grid grid-cols-2 gap-3">
-                  <a
-                    v-for="social in socialButtons"
-                    :key="social.name"
-                    :href="social.href"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    :class="[
-                      'flex w-full items-center justify-center gap-x-2 rounded-lg px-3 py-3 text-sm font-semibold text-white transition-colors',
-                      social.class
-                    ]"
-                  >
-                    <component :is="social.icon" class="size-5" aria-hidden="true" />
-                    <span>{{ social.name }}</span>
-                  </a>
-                </div>
-                
                 <a
-                  :href="instagramLink.href"
+                  :href="whatsappLink.href"
                   target="_blank"
                   rel="noopener noreferrer"
                   :class="[
                     'flex w-full items-center justify-center gap-x-3 rounded-lg px-4 py-3 text-sm font-semibold text-white transition-opacity',
-                    instagramLink.class
+                    whatsappLink.class
                   ]"
                 >
-                  <component :is="instagramLink.icon" class="size-5" aria-hidden="true" />
-                  <span>{{ instagramLink.name }}</span>
+                  <component :is="whatsappLink.icon" class="size-5" aria-hidden="true" />
+                  <span>{{ whatsappLink.name }}</span>
                 </a>
               </div>
 

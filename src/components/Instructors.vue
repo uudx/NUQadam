@@ -1,57 +1,16 @@
 <script setup>
 import { ref } from 'vue';
+import { cardspfp } from '../data/teachers.js';
+
 const base = import.meta.env.BASE_URL
 
-const cards = ref([
-  {
-    id: 1,
-    image: `${base}/resources/webp/pfp/1.webp?url`,
-    name: 'Әбжан Бауыржан',
-    title: 'Мұғалім'
-  },
-  {
-    id: 2,
-    image: `${base}/resources/webp/pfp/2.webp?url`,
-    name: 'Серікулы Рамазан',
-    title: 'Мұғалім'
-  },
-  {
-    id: 3,
-    image: `${base}/resources/webp/pfp/3.webp?url`,
-    name: 'Тушжанов Мади',
-    title: 'Мұғалім'
-  },
-  {
-    id: 4,
-    image: `${base}/resources/webp/pfp/4.webp?url`,
-    name: 'Ибрагим Даурен',
-    title: 'Қалаушы'
-  },
-  {
-    id: 5,
-    image: `${base}/resources/webp/pfp/5.webp?url`,
-    name: 'Абикенова Нурлы',
-    title: 'Мұғалім'
-  },
-  {
-    id: 6,
-    image: `${base}/resources/webp/pfp/6.webp?url`,
-    name: 'Сансызбай Байнур',
-    title: 'Мұғалім'
-  },
-  {
-    id: 7,
-    image: `${base}/resources/webp/pfp/7.webp?url`,
-    name: 'Қуаныш Кевлинжан',
-    title: 'Мұғалім'
-  },
-  {
-    id: 8,
-    image: `${base}/resources/webp/pfp/8.webp?url`,
-    name: 'Ерзатулы Әділжан',
-    title: 'Мұғалім'
-  }
-])
+const getImagePath = (imagePath) => {
+  if (!imagePath) return ''
+  const cleanPath = imagePath.replace('?url', '').replace(/^\/\//, '/')
+  return cleanPath.startsWith('/') 
+    ? `${base}${cleanPath.slice(1)}` 
+    : `${base}${cleanPath}`
+}
 
 </script>
 
@@ -67,15 +26,16 @@ const cards = ref([
         </h4>
       </router-link>
       <div class="flex flex-wrap justify-center gap-8">
-        <div
-          v-for="teacher in cards"
+        <router-link
+          v-for="teacher in cardspfp"
           :key="teacher.id"
+          :to="{ name: 'TeacherDetails', params: { id: teacher.id } }"
           class="w-full sm:w-64 md:w-72 bg-white dark:bg-gray-900 rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300"
         >
           <div class="p-6 text-center">
             <div class="w-24 h-24 rounded-full mx-auto flex items-center justify-center text-white opacity-90 bg-linear-to-br from-blue-400 to-indigo-600 mb-4 shadow-lg">
               <img 
-                :src="teacher.image"
+                :src="getImagePath(teacher.image)"
                 :alt="teacher.name"
                 loading="lazy"
               >
@@ -84,7 +44,7 @@ const cards = ref([
             <h4 class="text-xl font-semibold text-gray-900 dark:text-white">{{ teacher.name }}</h4>
             <p class="text-sm text-blue-600 dark:text-blue-400 mb-4">{{ teacher.title }}</p>
           </div>
-        </div>
+        </router-link>
       </div>
     </div>
   </section>

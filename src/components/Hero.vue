@@ -1,9 +1,8 @@
 <script setup>
 import { ref } from 'vue'
 
-import { 
-  socialButtons, 
-  instagramLink, 
+import {
+  whatsappLink, 
   phoneNumbers
 } from '../data/socials.js'
 
@@ -26,6 +25,9 @@ function copyToClipboard(numberToCopy) {
   })
 }
 
+const navigateToWhatsApp = () => {
+  window.open(whatsappLink.href.value, '_blank');
+}
 </script>
 
 <template>
@@ -52,11 +54,12 @@ function copyToClipboard(numberToCopy) {
           >
               Байланыс
           </button>
-            <router-link to="/teachers">
-              <button class="bg-transparent border-2 border-gray-500 text-gray-300 hover:border-white hover:text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 mx-2">
-                  Мұғалімдермен танысу
-              </button>
-            </router-link>
+            <button 
+             @modal="navigateToWhatsApp"
+             class="bg-transparent border-2 border-gray-500 text-gray-300 hover:border-white hover:text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 mx-2"
+             >
+                Жазылу
+            </button>
           </div>
         </div>
       </div>
@@ -95,36 +98,18 @@ function copyToClipboard(numberToCopy) {
         </h2>
 
         <div>
-          <div class="space-y-3">
-            
-            <div class="grid grid-cols-2 gap-3">
-              <a
-                v-for="social in socialButtons"
-                :key="social.name"
-                :href="social.href"
-                target="_blank"
-                rel="noopener noreferrer"
-                :class="[
-                  'flex w-full items-center justify-center gap-x-2 rounded-lg px-3 py-3 text-sm font-semibold text-white transition-colors',
-                  social.class
-                ]"
-              >
-                <component :is="social.icon" class="size-8" aria-hidden="true" />
-                <span>{{ social.name }}</span>
-              </a>
-            </div>
-            
+          <div class="space-y-3">            
             <a
-              :href="instagramLink.href"
+              :href="whatsappLink.href"
               target="_blank"
               rel="noopener noreferrer"
               :class="[
                 'flex w-full items-center justify-center gap-x-3 rounded-lg px-4 py-3 text-sm font-semibold text-white transition-opacity',
-                instagramLink.class
+                whatsappLink.class
               ]"
             >
-              <component :is="instagramLink.icon" class="size-8" aria-hidden="true" />
-              <span>{{ instagramLink.name }}</span>
+              <component :is="whatsappLink.icon" class="size-8" aria-hidden="true" />
+              <span>{{ whatsappLink.name }}</span>
             </a>
           </div>
 

@@ -3,15 +3,15 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="mb-8">
-        <router-link 
-          :to="{ name: 'Teachers' }" 
+        <button 
+          @click="$router.back(-1)" 
           class="inline-flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-bold text-lg"
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
           </svg>
-          Барлық ұстаздар тізіміне оралу
-        </router-link>
+          Басты бетке оралу
+        </button>
       </div>
 
       <div v-if="teacher" class="flex flex-col md:flex-row items-start bg-white dark:bg-gray-800 shadow-2xl rounded-xl">
@@ -32,7 +32,7 @@
                 :key="subIndex" 
                 class="flex items-start text-gray-700 dark:text-gray-300"
               >
-                <svg class="flex-shrink-0 w-6 h-6 text-green-500 mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <svg class="shrink-0 w-6 h-6 text-green-500 mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 <span>{{ subItem }}</span>
               </li>
             </ul>
@@ -59,10 +59,9 @@
 </template>
 
 <script>
-import { cards } from '@/data/teachers.js'; // Убедитесь, что путь правильный
+import { cards } from '@/data/teachers.js';
 
 export default {
-  // Получаем id из маршрута через пропсы
   props: {
     id: {
       type: [String, Number],
@@ -75,7 +74,6 @@ export default {
     };
   },
   computed: {
-    // Вспомогательная функция, дублирующая логику из Teachers.vue для корректного отображения изображения
     getImagePath() {
       const base = import.meta.env.BASE_URL;
       return (imagePath) => {
@@ -86,10 +84,8 @@ export default {
     }
   },
   created() {
-    // 1. Конвертируем id из маршрута в число
     const teacherId = parseInt(this.id);
     
-    // 2. Ищем элемент в массиве cards (доступ к .value нужен, так как cards - это ref)
     if (cards.value) {
       this.teacher = cards.value.find(t => t.id === teacherId);
     }
