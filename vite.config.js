@@ -5,7 +5,7 @@ import svgLoader from 'vite-svg-loader'
 import path from 'path'
 
 export default defineConfig({
-  base: '/NUQadam/',
+  base: '/',
 
   plugins: [
     vue(),
