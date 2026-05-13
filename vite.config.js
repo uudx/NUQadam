@@ -5,15 +5,11 @@ import svgLoader from 'vite-svg-loader'
 import path from 'path'
 
 export default defineConfig(({ mode }) => {
-  return {
-    // Егер жеке домен қолдансаң (sally.kz), base '/' болуы керек.
-    // Егер тек github.io/NUQadam қолдансаң, '/NUQadam/' болуы керек.
-    // Төмендегі жол егер сен "production" үшін жинасаң, '/' орнатады:
-    base: mode === 'production' ? '/NUQadam/' : '/', 
-    
-    // ЕСКЕРТУ: Егер сен әлі де github.io/NUQadam арқылы тексергің келсе, 
-    // оны қолмен '/' деп өзгертіп жібер, өйткені sally.kz үшін түбірлік жол керек.
+  const base = '/'
 
+  return {
+    base, 
+    
     plugins: [
       vue(),
       tailwindcss(),
@@ -27,7 +23,7 @@ export default defineConfig(({ mode }) => {
     },
 
     build: {
-      outDir: 'docs', // GitHub Pages үшін дұрыс
+      outDir: 'docs',
       assetsDir: 'assets',
       emptyOutDir: true
     },
