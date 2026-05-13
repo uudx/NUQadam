@@ -4,9 +4,8 @@
   <meta charset="utf-8">
   <title>Redirecting...</title>
   <script>
-    const path = window.location.pathname;
-    const newPath = path.replace(/^\/NUQadam/, '');
-    window.location.href = '/NUQadam/#/' + newPath.slice(1);
+    const hash = window.location.pathname + window.location.search;
+    window.location.href = '/#' + hash;
   </script>
 </head>
 <body>Redirecting...</body>
