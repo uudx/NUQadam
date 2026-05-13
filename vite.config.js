@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
     // Егер жеке домен қолдансаң (sally.kz), base '/' болуы керек.
     // Егер тек github.io/NUQadam қолдансаң, '/NUQadam/' болуы керек.
     // Төмендегі жол егер сен "production" үшін жинасаң, '/' орнатады:
-    base: mode === 'production' ? '/' : '/', 
+    base: mode === 'production' ? '/NUQadam/' : '/', 
     
     // ЕСКЕРТУ: Егер сен әлі де github.io/NUQadam арқылы тексергің келсе, 
     // оны қолмен '/' деп өзгертіп жібер, өйткені sally.kz үшін түбірлік жол керек.
