@@ -31,22 +31,33 @@ const navigateToWhatsApp = () => {
 </script>
 
 <template>
-  <section class="relative bg-black text-white overflow-hidden items-center h-[55vh] lg:h-[90vh]">
-    <div class="absolute inset-0 z-0 w-full h-full bg-gray-800 flex items-center justify-center">
-      <img :src="heroImage" alt="Students learning English" class="w-full h-full object-cover object-center opacity-30 dark:opacity-40">
+  <section class="relative h-[65vh] md:h-[75vh] lg:h-[90vh] overflow-hidden bg-black text-white">
+    <div class="absolute inset-0">
+      <img
+        :src="heroImage" 
+        alt="Students learning English" 
+        class="w-full h-full object-cover object-center opacity-40 dark:opacity-40">
       <div class="absolute inset-0 bg-linear-to-r from-black/80 via-black/60 to-black/30"></div>
     </div>
 
-    <div class="relative z-10 container mx-auto flex flex-col lg:flex-row min-h-screen items-center pt-10 lg:pt-0 pb-16 px-6">
-      <div class="lg:w-1/2">
-        <div class="order-1">
-          <h1 class="z-10 text-4xl lg:text-5xl font-extrabold text-white"> Ағылшын Тілі </h1>
-          <h1 class="z-10 text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-400 mb-6 leading-normal"> Мүмкіндіктеріңді Аш </h1>
+    <div class="relative z-10 h-full">
+      <div class="container mx-auto h-full px-6 flex flex-col justify-center">
+        <div class="w-full md:w-3/5 lg:w-3/5">
+          <div class="text-center md:text-left lg:text-left">
+            <h1 class="text-3xl lg:text-5xl font-extrabold text-white"> 
+              Арманыңа жол ашатын білім 
+            </h1>
+            <h1 class="mt-2 mb-6 text-2xl lg:text-3xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-400 leading-normal"> 
+              Үздік ұстаздармен — үздік нәтижеге 
+            </h1>
+          </div>
+
+          <p class="text-lg text-gray-300 leading-relaxed mb-12 text-center md:text-left lg:text-left">
+          Sally Academy — Қазақстанның барлық өңіріндегі оқушыларға арналған онлайн білім беру орталығы. ҰБТ, SAT, IELTS емтихандарына және НИШ, КТЛ, РФМШ сынды үздік мектептерге дайындық — бәрі бір жерде. Назарбаев Университетінің үздік студенттері саған сапалы білімді қолжетімді бағамен жеткізеді.
+          </p>
         </div>
-        <p class="text-lg text-gray-300 leading-relaxed mb-12 order-2 lg:order-3">
-        Sally Academy - Ауылдық өңірлердегі жастардың тілдік қабілетін арттыру үшін арнайы жасалған онлайн ағылшын курсы. Бүгіннен бастап өз болашағыңа жол аш!
-        </p>
-        <div class="mt-12">
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start lg:justify-start">
           <button 
               @click="isModalOpen = true"
               type="button"
