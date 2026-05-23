@@ -129,18 +129,18 @@ const programs = [
   {
     id: 1,
     title: 'ҰБТ дайындығы',
-    desc: 'Барлық таңдау пәндері бойынша. Шынайы тест базасы, әр аптада mock-ҰБТ, баллыңды әр аптада өлшейміз.',
+    desc: 'Барлық таңдау пәндері бойынша. Шынайы тест базасы, әр аптада ҰБТ практика, баллыңды әр аптада өлшейміз.',
     icon: ClipboardDocumentListIcon,
     theme: 'from-blue-500 to-cyan-400',
     glow: 'from-blue-500 to-cyan-400',
     hoverText: 'group-hover:text-blue-500 dark:group-hover:text-blue-300',
     tagStyle: 'bg-blue-50 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300',
-    tags: ['Mock-тест', 'Апта сайын', 'Барлық пәндер']
+    tags: ['Практикалық тест', 'Апта сайын', 'Барлық пәндер']
   },
   {
     id: 2,
     title: 'SAT дайындығы',
-    desc: 'Math, Reading, Writing — үш секцияға да терең дайындық. Mock SAT-тар, эссе тексеру, scholarship стратегиясы.',
+    desc: 'Math, Reading, Writing — үш секцияға да терең дайындық. SAT практикалар, эссе тексеру, scholarship стратегиясы.',
     icon: GlobeAltIcon,
     theme: 'from-indigo-500 to-purple-500',
     glow: 'from-indigo-500 to-purple-500',

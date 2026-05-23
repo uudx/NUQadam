@@ -1,145 +1,164 @@
 <template>
-  <section class="bg-white dark:bg-[#030712] py-20 px-6 transition-colors duration-300">
-    <div class="max-w-5xl mx-auto">
+  <div style="background: #050B16; border-radius: 16px; padding: 28px 22px; font-family: var(--font-sans);">
+  <div class="pricing-grid">
 
-      <!-- Header -->
-      <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-4 leading-tight">
-          Қолжетімді бағалар,
-          <span class="text-[#b12c00]"> нақты нәтиже</span>
-        </h2>
-        <p class="text-gray-500 dark:text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
-          Біз сапалы білім әр отбасына қол жетімді болуы керек деп санаймыз. Сондықтан бағаларымыз қаладағы беделді репетитордан 2–3 есе төмен — ал сапа одан жоғары.
-        </p>
+    <!-- FOUNDATION -->
+    <div style="background: #0E1B2E; border-radius: 16px; padding: 26px 24px; color: white; border: 0.5px solid rgba(255,255,255,0.06);">
+      <div style="display: inline-block; background: rgba(255,255,255,0.08); color: #C0CAD8; padding: 5px 13px; border-radius: 20px; font-size: 11px; font-weight: 500; margin-bottom: 16px; letter-spacing: 0.5px;">
+        МЕКТЕП ПӘНДЕРІ · АҒЫЛШЫН
       </div>
+      <div style="font-size: 28px; font-weight: 800; margin: 0 0 4px; color: white; letter-spacing: -0.5px;">FOUNDATION</div>
+      <div style="font-size: 12px; color: #8B96A8; margin: 0 0 22px;">1–11 сынып пәндері мен жалпы ағылшын тілі</div>
 
-      <!-- Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-
-        <!-- STARTER -->
-        <div class="border border-gray-200 dark:border-white/10 rounded-3xl p-8 flex flex-col bg-white dark:bg-[#0f1623] transition-colors duration-300">
-          <div class="mb-6">
-            <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-red-50 text-[#b12c00] dark:bg-[#b12c00]/20 dark:text-red-300">
-              Топтық сабақтар
-            </span>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 22px;">
+        <div style="border-right: 0.5px solid rgba(255,255,255,0.08); padding-right: 18px;">
+          <div style="font-size: 10px; color: #6E7A8E; margin-bottom: 6px; letter-spacing: 1px; font-weight: 600;">ТОПТЫҚ</div>
+          <div style="font-size: 11px; color: #8B96A8; margin-bottom: 12px;">2–5 оқушы · аптасына 4 сабақ</div>
+          <div style="font-size: 26px; font-weight: 800; color: white; line-height: 1;">
+            20 000 <span style="font-size: 11px; font-weight: 400; color: #6E7A8E;">₸/ай</span>
           </div>
-
-          <h3 class="text-2xl font-black text-gray-900 dark:text-white mb-1">STARTER</h3>
-          <p class="text-sm text-gray-400 dark:text-gray-500 mb-6">Шағын топ (3–5 оқушы) · Аптасына 4 сабақ (60 мин)</p>
-
-          <div class="mb-1">
-            <span class="text-sm text-gray-400 dark:text-gray-500">Бастапқы баға</span>
-          </div>
-          <div class="flex items-end gap-2 mb-1">
-            <span class="text-5xl font-black text-gray-900 dark:text-white">20 000</span>
-            <span class="text-gray-400 dark:text-gray-500 mb-2 text-sm">тг / айына</span>
-          </div>
-          <p class="text-sm text-gray-400 dark:text-gray-500 mb-8">немесе 1 250 тг / сабақ · Алдын ала төлеу шарт емес</p>
-
-          <hr class="border-gray-100 dark:border-white/10 mb-8" />
-
-          <ul class="flex flex-col gap-3 flex-grow mb-10">
-            <li v-for="f in starterFeatures" :key="f" class="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-300">
-              <CheckCircleIcon class="w-5 h-5 text-[#b12c00] shrink-0 mt-0.5" />
-              {{ f }}
-            </li>
-          </ul>
-
-          <button
-            @click="navigateToWhatsApp"
-            class="w-full py-4 rounded-2xl bg-red-50 dark:bg-[#b12c00]/20 text-[#b12c00] dark:text-red-300 font-bold text-sm hover:bg-red-100 dark:hover:bg-[#b12c00]/30 transition-all flex items-center justify-center gap-2">
-            Жазылу
-            <ArrowRightIcon class="w-4 h-4" />
-          </button>
+          <div style="font-size: 10px; color: #6E7A8E; margin-top: 6px;">немесе 1 250 ₸/сабақ</div>
         </div>
-
-        <!-- STANDARD -->
-        <div class="rounded-3xl p-8 flex flex-col relative transition-colors duration-300 bg-[#0f1e3a] dark:bg-[#0a1628] text-white">
-          <!-- Popular badge -->
-          <div class="absolute -top-4 left-1/2 -translate-x-1/2">
-            <span class="px-4 py-1.5 rounded-full bg-[#b12c00] text-white text-xs font-bold shadow-lg whitespace-nowrap">
-              ⭐ Ең танымал
-            </span>
-          </div>
-
-          <div class="mb-6">
-            <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-white/10 text-blue-200">
-              Жеке сабақтар
-            </span>
-          </div>
-
-          <h3 class="text-2xl font-black text-white mb-1">STANDARD</h3>
-          <p class="text-sm text-blue-200/60 mb-6">1:1 формат, толық назар · Аптасына 3 сабақ (60 мин)</p>
-
-          <div class="mb-1">
-            <span class="text-sm text-blue-200/60">Бастапқы баға</span>
-          </div>
-          <div class="flex items-end gap-2 mb-1">
-            <span class="text-5xl font-black text-white">36 000</span>
-            <span class="text-blue-200/60 mb-2 text-sm">тг / айына</span>
-          </div>
-          <p class="text-sm text-blue-200/60 mb-8">немесе 3 000 тг / сабақ · Алдын ала төлеу шарт емес</p>
-
-          <hr class="border-white/10 mb-8" />
-
-          <ul class="flex flex-col gap-3 flex-grow mb-10">
-            <li v-for="f in standardFeatures" :key="f" class="flex items-start gap-3 text-sm text-blue-100">
-              <CheckCircleIcon class="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
-              {{ f }}
-            </li>
-          </ul>
-
-          <button 
-            @click="navigateToWhatsApp"
-            class="w-full py-4 rounded-2xl bg-[#b12c00] text-white font-bold text-sm hover:bg-[#c93200] transition-all flex items-center justify-center gap-2 shadow-lg shadow-red-900/30">
-            Жазылу
-            <ArrowRightIcon class="w-4 h-4" />
-          </button>
-        </div>
-
-      </div>
-
-      <!-- Free first lesson banner -->
-      <div class="rounded-3xl border border-dashed border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 px-8 py-6 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-        <span class="text-3xl">🎁</span>
         <div>
-          <p class="font-bold text-gray-900 dark:text-white text-base">Бірінші сабақ — әрқашан тегін</p>
-          <p class="text-sm text-gray-500 dark:text-gray-400 mt-0.5">Ұстазбен танысу, деңгейіңді анықтау, мақсатты келісу.</p>
+          <div style="font-size: 10px; color: #6E7A8E; margin-bottom: 6px; letter-spacing: 1px; font-weight: 600;">ЖЕКЕ</div>
+          <div style="font-size: 11px; color: #8B96A8; margin-bottom: 12px;">1:1 формат · аптасына 3 сабақ</div>
+          <div style="font-size: 26px; font-weight: 800; color: white; line-height: 1;">
+            3 000–5 000 <span style="font-size: 11px; font-weight: 400; color: #6E7A8E;">₸/сабақ</span>
+          </div>
+          <div style="font-size: 10px; color: #6E7A8E; margin-top: 6px;">ұстаздың тәжірибесіне байланысты</div>
         </div>
-        <button
-            @click="navigateToWhatsApp"
-            class="sm:ml-auto shrink-0 px-6 py-3 rounded-2xl bg-[#b12c00] text-white font-bold text-sm hover:bg-[#c93200] transition-all whitespace-nowrap shadow-md">
-          Тегін сабақ алу →
-        </button>
       </div>
 
+      <div style="border-top: 0.5px solid rgba(255,255,255,0.06); padding-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 18px; font-size: 12px; color: #C0CAD8;">
+        <div v-for="feature in foundationFeatures" :key="feature">
+          <span style="color: #E89077; margin-right: 6px; font-weight: 700;">✓</span>{{ feature }}
+        </div>
+      </div>
     </div>
-  </section>
+
+    <!-- UBT PRO -->
+    <div style="background: #0E1B2E; border-radius: 16px; padding: 26px 24px; color: white; position: relative; border: 1.5px solid #B8472D;">
+      <div style="position: absolute; top: -12px; right: 24px; background: #B8472D; color: white; padding: 5px 14px; border-radius: 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px;">
+        ★ ЕҢ ТАНЫМАЛ
+      </div>
+      <div style="display: inline-block; background: rgba(184,71,45,0.18); color: #E89077; padding: 5px 13px; border-radius: 20px; font-size: 11px; font-weight: 500; margin-bottom: 16px; letter-spacing: 0.5px;">
+        ҰБТ ДАЙЫНДЫҒЫ
+      </div>
+      <div style="font-size: 28px; font-weight: 800; margin: 0 0 4px; color: white; letter-spacing: -0.5px;">UBT PRO</div>
+      <div style="font-size: 12px; color: #8B96A8; margin: 0 0 22px;">Барлық таңдау пәндері бойынша терең дайындық</div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 22px;">
+        <div style="border-right: 0.5px solid rgba(255,255,255,0.08); padding-right: 18px;">
+          <div style="font-size: 10px; color: #6E7A8E; margin-bottom: 6px; letter-spacing: 1px; font-weight: 600;">ТОПТЫҚ</div>
+          <div style="font-size: 11px; color: #8B96A8; margin-bottom: 12px;">2–5 оқушы · аптасына 4 сабақ</div>
+          <div style="font-size: 26px; font-weight: 800; color: white; line-height: 1;">
+            22 000 <span style="font-size: 11px; font-weight: 400; color: #6E7A8E;">₸/ай</span>
+          </div>
+          <div style="font-size: 10px; color: #6E7A8E; margin-top: 6px;">немесе 1 375 ₸/сабақ</div>
+        </div>
+        <div>
+          <div style="font-size: 10px; color: #6E7A8E; margin-bottom: 6px; letter-spacing: 1px; font-weight: 600;">ЖЕКЕ</div>
+          <div style="font-size: 11px; color: #8B96A8; margin-bottom: 12px;">1:1 формат · аптасына 3 сабақ</div>
+          <div style="font-size: 26px; font-weight: 800; color: white; line-height: 1;">
+            3 000–5 000 <span style="font-size: 11px; font-weight: 400; color: #6E7A8E;">₸/сабақ</span>
+          </div>
+          <div style="font-size: 10px; color: #6E7A8E; margin-top: 6px;">ұстаздың тәжірибесіне байланысты</div>
+        </div>
+      </div>
+
+      <div style="border-top: 0.5px solid rgba(255,255,255,0.06); padding-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 18px; font-size: 12px; color: #C0CAD8;">
+        <div v-for="feature in ubtProFeatures" :key="feature">
+          <span style="color: #E89077; margin-right: 6px; font-weight: 700;">✓</span>{{ feature }}
+        </div>
+      </div>
+    </div>
+
+    <!-- INTERNATIONAL -->
+    <div style="background: #0E1B2E; border-radius: 16px; padding: 26px 24px; color: white; border: 0.5px solid rgba(255,255,255,0.06);">
+      <div style="display: inline-block; background: rgba(255,255,255,0.08); color: #C0CAD8; padding: 5px 13px; border-radius: 20px; font-size: 11px; font-weight: 500; margin-bottom: 16px; letter-spacing: 0.5px;">
+        SAT · IELTS
+      </div>
+      <div style="font-size: 28px; font-weight: 800; margin: 0 0 4px; color: white; letter-spacing: -0.5px;">INTERNATIONAL</div>
+      <div style="font-size: 12px; color: #8B96A8; margin: 0 0 22px;">Халықаралық емтихандарға кәсіби дайындық</div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 22px;">
+        <div style="border-right: 0.5px solid rgba(255,255,255,0.08); padding-right: 18px;">
+          <div style="font-size: 10px; color: #6E7A8E; margin-bottom: 6px; letter-spacing: 1px; font-weight: 600;">ТОПТЫҚ</div>
+          <div style="font-size: 11px; color: #8B96A8; margin-bottom: 12px;">2–5 оқушы · аптасына 4 сабақ</div>
+          <div style="font-size: 26px; font-weight: 800; color: white; line-height: 1;">
+            30 000 <span style="font-size: 11px; font-weight: 400; color: #6E7A8E;">₸/ай</span>
+          </div>
+          <div style="font-size: 10px; color: #6E7A8E; margin-top: 6px;">немесе 1 875 ₸/сабақ</div>
+        </div>
+        <div>
+          <div style="font-size: 10px; color: #6E7A8E; margin-bottom: 6px; letter-spacing: 1px; font-weight: 600;">ЖЕКЕ</div>
+          <div style="font-size: 11px; color: #8B96A8; margin-bottom: 12px;">1:1 формат · аптасына 3 сабақ</div>
+          <div style="font-size: 26px; font-weight: 800; color: white; line-height: 1;">
+            3 000–5 000 <span style="font-size: 11px; font-weight: 400; color: #6E7A8E;">₸/сабақ</span>
+          </div>
+          <div style="font-size: 10px; color: #6E7A8E; margin-top: 6px;">ұстаздың тәжірибесіне байланысты</div>
+        </div>
+      </div>
+
+      <div style="border-top: 0.5px solid rgba(255,255,255,0.06); padding-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 18px; font-size: 12px; color: #C0CAD8;">
+        <div v-for="feature in internationalFeatures" :key="feature">
+          <span style="color: #E89077; margin-right: 6px; font-weight: 700;">✓</span>{{ feature }}
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer note -->
+  <div style="text-align: center; color: #8B96A8; font-size: 12px; margin-top: 18px; padding: 12px 0 4px;">
+      🎁 Барлық пакеттерде <span style="color: white; font-weight: 600;">алғашқы сабақ — тегін</span> · Алдын ала төлеу шарт емес
+    </div>
+
+  </div>
 </template>
 
-<script setup>
-import { CheckCircleIcon, ArrowRightIcon } from '@heroicons/vue/24/outline'
-import { computed } from 'vue';
-import { whatsappLink } from '../data/socials.js'
+<style scoped>
+.pricing-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
 
-const starterFeatures = [
+@media (min-width: 1024px) {
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    align-items: start;
+  }
+}
+</style>
+
+<script setup>
+const foundationFeatures = [
   'Жеке оқу жоспары',
+  'НУ ұстаздары',
   'Барлық материалдар онлайн',
   'Апта сайынғы тест',
-  'Сабақтардың видео жазбасы',
+  'Видео жазбалар',
   'Үй тапсырмасы тексеру',
 ]
 
-const standardFeatures = [
+const ubtProFeatures = [
   'Жеке оқу жоспары',
-  'Барлық материалдар онлайн',
-  'Апта сайынғы тест + талдау',
-  'Сабақтардың видео жазбасы',
-  'Ата-аналарға ай сайынғы есеп',
-  'Үй тапсырмасы тексеру',
+  'НУ ұстаздары — ҰБТ 130+',
+  'Апта сайын Mock-ҰБТ',
+  'Тест нәтиже талдауы',
+  'Видео жазбалар',
+  'Ата-анаға ай есебі',
 ]
 
-const navigateToWhatsApp = () => {
-  window.open(whatsappLink.href, '_blank');
-}
+const internationalFeatures = [
+  'Жеке оқу жоспары',
+  'IELTS 7.5+ / SAT 1400+ ұстаздар',
+  'Mock-емтихан апта сайын',
+  'Эссе және Speaking тексеру',
+  'Видео жазбалар',
+  'Ата-анаға ай есебі',
+]
 </script>

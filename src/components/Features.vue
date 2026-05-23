@@ -21,7 +21,7 @@ const cards = [
   {
     id: 2,
     title: "NU Expert Ұстаздары",
-    desc: "Назарбаев Университетінің топ-студенттері мен түлектері. Олар ҰБТ мен SAT-ты 'шаққан' практиктер.",
+    desc: "Назарбаев Университетінің топ-студенттері мен түлектері. Олар ҰБТ мен SAT-ты үздік тапсырған практиктер.",
     icon: AcademicCapIcon,
     iconBg: "bg-indigo-100 dark:bg-indigo-900/40",
     iconColor: "text-indigo-500 dark:text-indigo-400",
@@ -37,7 +37,7 @@ const cards = [
   {
     id: 4,
     title: "Прогресс-бақылау",
-    desc: "Апта сайынғы Mock-тесттер мен толық аналитика. Қай тақырыптан қалып жатқаныңды нақты көресің.",
+    desc: "Апта сайынғы практикалық тесттер мен толық аналитика. Қай тақырыптан қалып жатқаныңды нақты көресің.",
     icon: ChartBarIcon,
     iconBg: "bg-emerald-100 dark:bg-emerald-900/40",
     iconColor: "text-emerald-500 dark:text-emerald-400",
